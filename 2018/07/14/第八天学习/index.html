@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/7 | mypythonbook</title>
+  <title>Python基础语法第七天学习 | mypythonbook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Python�����桢Web����">
-<meta property="og:type" content="website">
-<meta property="og:title" content="mypythonbook">
-<meta property="og:url" content="http://yoursite.com/archives/2018/07/index.html">
+  <meta name="description" content="主要内容数组数据类型中的列表和元组 列表的概念1234567概念：List数据，首先它可以存储各种数据类型，比如：数值，字符串，布尔型......其次，列表中的元素可以随时进行删除，修改，增加，其长度随之变化；同时，列表也是有序的，我们同样可以使用循环对其进行遍历。声明与赋值：list1[1,2,3,4,5]	  list2[&apos;one&apos;,&apos;two&apos;,&apos;three&apos;]	list3[1,&apos;two&apos;,3">
+<meta name="keywords" content="Python�����桢Web����">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python基础语法第七天学习">
+<meta property="og:url" content="http://yoursite.com/2018/07/14/第八天学习/index.html">
 <meta property="og:site_name" content="mypythonbook">
+<meta property="og:description" content="主要内容数组数据类型中的列表和元组 列表的概念1234567概念：List数据，首先它可以存储各种数据类型，比如：数值，字符串，布尔型......其次，列表中的元素可以随时进行删除，修改，增加，其长度随之变化；同时，列表也是有序的，我们同样可以使用循环对其进行遍历。声明与赋值：list1[1,2,3,4,5]	  list2[&apos;one&apos;,&apos;two&apos;,&apos;three&apos;]	list3[1,&apos;two&apos;,3">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-14T06:53:20.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mypythonbook">
+<meta name="twitter:title" content="Python基础语法第七天学习">
+<meta name="twitter:description" content="主要内容数组数据类型中的列表和元组 列表的概念1234567概念：List数据，首先它可以存储各种数据类型，比如：数值，字符串，布尔型......其次，列表中的元素可以随时进行删除，修改，增加，其长度随之变化；同时，列表也是有序的，我们同样可以使用循环对其进行遍历。声明与赋值：list1[1,2,3,4,5]	  list2[&apos;one&apos;,&apos;two&apos;,&apos;three&apos;]	list3[1,&apos;two&apos;,3">
   
     <link rel="alternative" href="/atom.xml" title="mypythonbook" type="application/atom+xml">
   
@@ -149,292 +153,160 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-第八天学习" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Python基础语法第七天学习
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/第八天学习/" class="archive-article-date">
+
+        
+        <a href="/2018/07/14/第八天学习/" class="archive-article-date">
   	<time datetime="2018-07-14T06:37:34.814Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/第八天学习/">Python基础语法第七天学习</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><p>数组数据类型中的列表和元组</p>
+<h3 id="列表的概念"><a href="#列表的概念" class="headerlink" title="列表的概念"></a>列表的概念</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">概念：List数据，首先它可以存储各种数据类型，比如：数值，字符串，布尔型......其次，列表中的元素可以随时进行删除，修改，增加，其长度随之变化；同时，列表也是有序的，我们同样可以使用循环对其进行遍历。</span><br><span class="line">声明与赋值：list1[1,2,3,4,5]	  list2[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]	list3[1,<span class="string">'two'</span>,3,<span class="string">'four'</span>]	          list4=list()  空列表，它的长度为0</span><br><span class="line">我们通过观察发现，列表是有序的，那么通过<span class="keyword">for</span> <span class="keyword">in</span> 方式可以对其进行快速遍历，例如：</span><br><span class="line">list1[1,2,3,4,5]	</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list1:	</span><br><span class="line">    <span class="built_in">print</span>(i,end=<span class="string">' '</span>)</span><br><span class="line">=&gt;1 2 3 4 5</span><br></pre></td></tr></table></figure>
+<h3 id="列表的操作"><a href="#列表的操作" class="headerlink" title="列表的操作"></a>列表的操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">①增加元素</span><br><span class="line">第一种，使用append（）函数，在列表的尾部追加一个新元素。</span><br><span class="line">函数的格式：append（元素）</span><br><span class="line">返回值：列表的长度+1</span><br><span class="line">list1.append(6)</span><br><span class="line">[1,2.,3,4,5,6]</span><br><span class="line">注意，该方法添加的元素都是在列表的尾部。</span><br><span class="line">第二种，使用extend（）函数，在列表尾部，追加一个子列表</span><br><span class="line">函数格式：list.extend(子列表)</span><br><span class="line">返回值：列表长度 + n</span><br><span class="line">list1.extend(7,8)</span><br><span class="line">list1[1,2,3,4,5,6,7,8]</span><br><span class="line">list1.extend(list2)</span><br><span class="line">list[1,2,3,4,5,6,7,8,<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line">第三种，使用<span class="string">'+'</span>运算符，连接两个列表，其结果会生成一个新的列表，同时原来两个列表不变。</span><br><span class="line">sublist = [5,6,7]</span><br><span class="line">list2+sublist</span><br><span class="line">[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>,5,6,7]</span><br><span class="line">list2</span><br><span class="line">[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line">sublist</span><br><span class="line">[5,6,7]</span><br><span class="line">第四种，使用insert（）函数，对列表指定位置进行插入操作。</span><br><span class="line">函数格式：list.insert(index，元素)，其中，index代表要插入的索引位。</span><br><span class="line">返回值：列表长度+1</span><br><span class="line">list2.insert(1,2)</span><br><span class="line">list2</span><br><span class="line">[<span class="string">'one'</span>,2,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line">注意：插入指定的索引位后，原索引位所在的元素下标+1</span><br><span class="line">我们在实际使用中，通常会利用addend或extend实现元素的追加，而少用insert进行元素的插入，因为在频繁的插入操作中，需要耗费大量的内存，来维护列表的索引关系。</span><br><span class="line">②修改元素</span><br><span class="line">通过索引位，找到指定的列表元素，重新对其进行赋值即可完成修改操作。</span><br><span class="line">例如:</span><br><span class="line">list1 = [1,2,3]</span><br><span class="line">list1[2] = 5</span><br><span class="line">[1,2,5]</span><br><span class="line"></span><br><span class="line">③删除元素</span><br><span class="line">第一种，remove（）移除在列表中指定的元素</span><br><span class="line">函数格式：list.remove(元素)</span><br><span class="line">返回值：移除元素后的列表，长度-1,没有返回值，列表空时会报错</span><br><span class="line">第二种，pop（）有两种使用模式</span><br><span class="line">list.pop():默认模式，从列表的尾部弹出一个元素，列表空时会报错</span><br><span class="line">返回值：返回弹出的元素本身。</span><br><span class="line">list.pop(元素位置)，从列表中弹出指定位置的元素，列表空时会报错</span><br><span class="line">此处pop和remove的用法类似，不过pop会将移除的元素返回，remove不会。</span><br><span class="line">第三种，使用del删除指定的列表片段或者列表本身。（不是list相关的方法，是python的关键字，啥都能删）</span><br><span class="line">del list1[idx]		删除指定位置的元素</span><br><span class="line">del list1			删除列表，同时释放该列表占用的内存空间</span><br><span class="line">del list1[1:3]		删除指定的列表片段</span><br><span class="line">del list1与 list1.clear()的区别</span><br><span class="line">1、del 可以将列表彻底粉碎，释放其所占内存</span><br><span class="line">2、clear()只是将列表中的内容清空，原列表依然存在，为空。</span><br></pre></td></tr></table></figure>
+<h3 id="与列表相关的其他运算符和函数"><a href="#与列表相关的其他运算符和函数" class="headerlink" title="与列表相关的其他运算符和函数"></a>与列表相关的其他运算符和函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">+与*运算符</span><br><span class="line">在列表中我们使用+运算符，可以将两个列表进行连接，生成一个新的列表。</span><br><span class="line">比如：list1[1,2,3]    list2[4,5,6]      list1+list2=&gt;[1,2,3,4,5,6]</span><br><span class="line">使用*运算符，可以将目标列表的内容重复N次，并生成一个新的列表。</span><br><span class="line">比如：list1[1,2,3]    list1*2=&gt;[1,2,3,1,2,3]</span><br><span class="line"></span><br><span class="line">max()和min()函数</span><br><span class="line">函数格式：max（list）、min（list）</span><br><span class="line">返回值：返回该列表最大或最小值。</span><br><span class="line">注意：该函数在使用时，必须要求所统计的列表中的元素的数据类型要一致，不支持多数据类型，数值型根据数值本身大小取值，字符串类型根据字母的ASCII码值取值，布尔值根据对应的1,0取值。</span><br><span class="line"></span><br><span class="line">sum（）</span><br><span class="line">函数格式：sum（list）</span><br><span class="line">返回值:将列表中所有的数值进行求和运算，返回结果。注意，该函数只能用于数值型列表。</span><br><span class="line"></span><br><span class="line">list.sort()排序</span><br><span class="line">list.sort(reverse = True)</span><br><span class="line">返回值：将列表按照从小到大的升序排序。会修改原列表。</span><br><span class="line">如果设置了翻转参数为True，那么将原来列表中的元素按照降序排序。</span><br><span class="line"></span><br><span class="line">sorted()排序</span><br><span class="line">函数格式：sorted（list）、sorted（list，reverse=True）</span><br><span class="line">返回值：将列表按照从小到大的升序排序。会修改原列表。</span><br><span class="line">如果设置了翻转参数为True，那么将原来列表中的元素按照降序排序。</span><br><span class="line">注意：上面两种排序函数，其中sort（）属于列表自身的排序方法；sorted（）属于Python内置函数，所以sorted（）可以使用在包括列表在内的多种集合排序。</span><br><span class="line"></span><br><span class="line">冒泡排序法：</span><br><span class="line">list1[1,2,3,4,5]</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(len(list1)) :</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(j+1,len(list1)) :</span><br><span class="line">        a = list1[j]</span><br><span class="line">        b = list1[i]</span><br><span class="line">        <span class="keyword">if</span> a &lt; b :</span><br><span class="line">            list1[j] = b</span><br><span class="line">            list1[i] = a</span><br><span class="line"><span class="built_in">print</span>(list1[0],list1)</span><br><span class="line"></span><br><span class="line">count()函数</span><br><span class="line">格式：list.count(元素)</span><br><span class="line">返回值:计算指定元素在list中出现的次数。</span><br><span class="line"></span><br><span class="line"><span class="keyword">in</span>  关键字</span><br><span class="line">判断指定的元素是否在列表中存在，如果存在返回True，否则返回False</span><br><span class="line"></span><br><span class="line">index（）检索函数</span><br><span class="line">函数格式：list.index(元素)</span><br><span class="line">返回值：返回该元素在列表中的索引位置，如果不存在则报错。</span><br><span class="line"></span><br><span class="line">常用数据类型的转换</span><br><span class="line">字符串转化为整型：int（str）</span><br><span class="line">返回值：将字符型数值转为整型。</span><br><span class="line">int(<span class="string">'3'</span>)=&gt;3</span><br><span class="line">字符串转化为浮点型：<span class="built_in">float</span>（str）</span><br><span class="line">返回值：将字符型数值转为浮点型。</span><br><span class="line"><span class="built_in">float</span>（<span class="string">'2.4'</span>）=&gt;2.4</span><br><span class="line">数值型转化为字符串：str（int）</span><br><span class="line">返回值：将整数或浮点数转为字符型数值。</span><br><span class="line">str(1)=&gt;<span class="string">'1'</span>	str(1.5)=&gt;<span class="string">'1.5'</span></span><br><span class="line">字符串转化为列表：list（str）</span><br><span class="line">返回值：将字符串转为列表。</span><br><span class="line">string1 = <span class="string">'123456'</span></span><br><span class="line">list(string1)=&gt;[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'4'</span>,<span class="string">'5'</span>]</span><br><span class="line">拆分字符串：str.split(<span class="string">'分隔符'</span>)</span><br><span class="line">返回值：将字符串根据指定的分隔符分割成列表。</span><br><span class="line">例如：</span><br><span class="line">string = <span class="string">'空格 回车 退出 转换'</span></span><br><span class="line">list1 = string.split(<span class="string">' '</span>)</span><br><span class="line"><span class="built_in">print</span>(list1)</span><br><span class="line">[<span class="string">'空格'</span>, <span class="string">'回车'</span>, <span class="string">'退出'</span>, <span class="string">'转换'</span>]</span><br><span class="line"></span><br><span class="line">列表转化为字符串：<span class="string">'分隔符'</span>.join(list)</span><br><span class="line">返回值：将指定的列表中的元素，通过分隔符进行连接，转化为字符串。</span><br><span class="line">例如：</span><br><span class="line">list1 = [<span class="string">'空格'</span>, <span class="string">'回车'</span>, <span class="string">'退出'</span>, <span class="string">'转换'</span>]</span><br><span class="line">string2 = <span class="string">' '</span>.join(list1)</span><br><span class="line"><span class="built_in">print</span>(string2)</span><br><span class="line">空格 回车 退出 转换</span><br><span class="line"></span><br><span class="line">列表运算符的操作</span><br><span class="line">import operator</span><br><span class="line">operator.ge()     大于等于</span><br><span class="line">operator.gt()     大于</span><br><span class="line">operator.eq()     等于</span><br><span class="line">operator.ne()     不等于</span><br><span class="line">operator.le()     小于等于</span><br><span class="line">operator.lt()     小于</span><br></pre></td></tr></table></figure>
+<h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1、元组的概念：元组是值的有序序列，里面可以存储各种数据类型的元素。但是元组一旦被赋值后，其内容就不可被改变。</span><br><span class="line">2、元组的声明与赋值</span><br><span class="line">第一种：tup = a,b,c,d</span><br><span class="line">第二种：tup = (a,b,c,d)推荐使用该种声明方式。</span><br><span class="line">第三种：tup = tuple（）声明一个空的元组对象。</span><br><span class="line">注意：元组在赋值时，且元素只有一个时，一定要在元素后面加上一个<span class="string">'，'</span>，与普通变量赋值进行区分，具体情况如下：</span><br><span class="line">tuple1 = (1,)或者tuple1 = 1,</span><br><span class="line">3、常用操作</span><br><span class="line">+ - * <span class="keyword">in</span> 等列表常用操作</span><br><span class="line">4、元组转成列表</span><br><span class="line">list1 = list[tuple]</span><br><span class="line">列表转为元组</span><br><span class="line">tup = tuple[list1]</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/14/第八天学习/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/第七天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:19.034Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/12/第七天学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python基础语法第七天学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/第七天学习/">Python基础语法第七天学习</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/第六天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:16.369Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/第六天学习/">Python基础语法第六天学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/第五天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:13.842Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/第五天学习/">Python基础语法第五天学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/第四天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:11.120Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/第四天学习/">Python基础语法第四天学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/第三天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:08.457Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/第三天学习/">Python基础语法第三天学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/第二天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:05.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/第二天学习/">Python语法基础第二天学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/第一天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:00.577Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/第一天学习/">Python基础语法第一天学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/11/IF判断语句联系/" class="archive-article-date">
-  	<time datetime="2018-07-11T13:57:11.733Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/11/IF判断语句联系/">IF语句的小应用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/09/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-09T11:17:44.714Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/09/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -457,8 +329,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
