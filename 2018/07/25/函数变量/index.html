@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/7 | mypythonbook</title>
+  <title>函数学习（续） | mypythonbook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Python�����桢Web����">
-<meta property="og:type" content="website">
-<meta property="og:title" content="mypythonbook">
-<meta property="og:url" content="http://yoursite.com/archives/2018/07/index.html">
+  <meta name="description" content="函数变量与函数嵌套局部变量与全局变量123456789101112131415161）Python中，函数在调用的时候Python才会给函数一个内存地址，用来执行函数内部的相关代码。2）PYthon程序在运行时，首先会将程序最外部的内容载入内存，并给其分配相关的内存空间。我们称这种变量为全局变量。3）函数中声明的变量，只有在函数被执行时，才会被分配内存空间进行执行，我们称这种变量为局部变量。4）P">
+<meta name="keywords" content="Python�����桢Web����">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数学习（续）">
+<meta property="og:url" content="http://yoursite.com/2018/07/25/函数变量/index.html">
 <meta property="og:site_name" content="mypythonbook">
+<meta property="og:description" content="函数变量与函数嵌套局部变量与全局变量123456789101112131415161）Python中，函数在调用的时候Python才会给函数一个内存地址，用来执行函数内部的相关代码。2）PYthon程序在运行时，首先会将程序最外部的内容载入内存，并给其分配相关的内存空间。我们称这种变量为全局变量。3）函数中声明的变量，只有在函数被执行时，才会被分配内存空间进行执行，我们称这种变量为局部变量。4）P">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-25T12:36:13.456Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mypythonbook">
+<meta name="twitter:title" content="函数学习（续）">
+<meta name="twitter:description" content="函数变量与函数嵌套局部变量与全局变量123456789101112131415161）Python中，函数在调用的时候Python才会给函数一个内存地址，用来执行函数内部的相关代码。2）PYthon程序在运行时，首先会将程序最外部的内容载入内存，并给其分配相关的内存空间。我们称这种变量为全局变量。3）函数中声明的变量，只有在函数被执行时，才会被分配内存空间进行执行，我们称这种变量为局部变量。4）P">
   
     <link rel="alternative" href="/atom.xml" title="mypythonbook" type="application/atom+xml">
   
@@ -153,295 +157,165 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-函数变量" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/25/函数闭包/" class="archive-article-date">
-  	<time datetime="2018-07-25T12:36:26.090Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/25/函数闭包/">函数学习（再续）</a>
+    <h1 class="article-title" itemprop="name">
+      函数学习（续）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/25/函数变量/" class="archive-article-date">
+        
+        <a href="/2018/07/25/函数变量/" class="archive-article-date">
   	<time datetime="2018-07-25T12:31:55.171Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/25/函数变量/">函数学习（续）</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="函数变量与函数嵌套"><a href="#函数变量与函数嵌套" class="headerlink" title="函数变量与函数嵌套"></a>函数变量与函数嵌套</h2><h3 id="局部变量与全局变量"><a href="#局部变量与全局变量" class="headerlink" title="局部变量与全局变量"></a>局部变量与全局变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1）Python中，函数在调用的时候Python才会给函数一个内存地址，用来执行函数内部的相关代码。</span><br><span class="line">2）PYthon程序在运行时，首先会将程序最外部的内容载入内存，并给其分配相关的内存空间。我们称这种变量为全局变量。</span><br><span class="line">3）函数中声明的变量，只有在函数被执行时，才会被分配内存空间进行执行，我们称这种变量为局部变量。</span><br><span class="line">4）Python程序执行的过程，执行函数时，首先会检查其函数内部的局部变量是否存在，如果存在就调用它，如果不存在，就从外部全局变量中进行调用，如果仍然没有发现相关内容，则报错。</span><br><span class="line">5）locals（）与globals（）</span><br><span class="line">在Python中，通过globals（）观察全局作用域中内容，包括：内置的，自定义函数，全局变量；</span><br><span class="line">通过locals（）能够观察局部域中内容，包括：局部变量，嵌套函数。</span><br><span class="line">6）当函数中出现嵌套情况时，最内层函数执行调用变量，会采用“就近原则”即先查找自身范围内的变量，如果没有找到，则向上查找，直到程序最外部结束。</span><br><span class="line">7）global与nonlocal</span><br><span class="line">global用来修饰局部变量时，表示该变量将作为全局变量来使用。即不仅在函数中可以被调用，同时在文件的最外部也可以被调用。</span><br><span class="line">nonlocal用来修饰嵌套函数内部的变量，对父级作用域（外层函数）中的变量进行引用和修改，那么从该层以下都将调用该变量的值。注意：该关键字只能影响其直接父级。</span><br><span class="line">使用global关键字修饰的变量之前，其变量可以不存在。</span><br><span class="line">nonlocal关键字修饰的变量，在嵌套作用域中必须已经存在，但不能是全局变量。</span><br><span class="line"></span><br><span class="line">总结：在函数中定义的变量，我们称为局部变量。包括在函数内部定义的变量、作为参数传递进来的变量。局部变量起作用的范围，我们称为，局部作用域。因为Python在调用局部变量时，需要给它分配内存地址，我们称为这个地址为局部命名空间。</span><br><span class="line">在文件最外层定义的变量，我们称为全局变量，可以在文件中的任意位置进行调用。全局变量起作用的范围，我们称为，全局作用域。Python在载入文件时，就需要给全局变量分配地址，这个地址我们称为全局命名空间。</span><br></pre></td></tr></table></figure>
+<h3 id="函数嵌套"><a href="#函数嵌套" class="headerlink" title="函数嵌套"></a>函数嵌套</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">根据Python中，对函数的载入和调用的特点，我们可以清楚地看到，当Python运行相关文件时，如果遇到函数时，会先将其名字载入到内存中（即为函数名指定一个内存地址）。因此，我们在使用函数名时，可以有以下三种情况：</span><br><span class="line">1）将函数名作为值赋值给变量</span><br><span class="line">例如：</span><br><span class="line">def  f1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">a = f1</span><br><span class="line">这时，变量a中的值就是f1()函数名的内存地址。</span><br><span class="line">2）将函数名作为容器的元素</span><br><span class="line">例如：</span><br><span class="line">def f1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">ls = [1, 2 ,f1]</span><br><span class="line">此时存入到列表ls中的f1，它的值仍然是该函数名对应的内存地址。</span><br><span class="line">3）将函数名作为另外一个函数的参数进行传递</span><br><span class="line">def f1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">def f2(x):</span><br><span class="line">    x()</span><br><span class="line">f2(f1)</span><br><span class="line">那么其执行结果为ok，这种方式类似于函数的普通嵌套。</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/25/函数变量/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/23/函数学习/" class="archive-article-date">
-  	<time datetime="2018-07-23T13:24:54.982Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/07/25/函数闭包/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          函数学习（再续）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/23/函数学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python基础_函数</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/23/函数学习/">Python基础_函数</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/20/登录注册注销小练习/" class="archive-article-date">
-  	<time datetime="2018-07-20T13:18:57.023Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/20/登录注册注销小练习/">登录注册注销的小练习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/19/一次知识扩展/" class="archive-article-date">
-  	<time datetime="2018-07-19T12:29:20.752Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/19/一次知识扩展/">一次知识扩展</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/18/第十天学习/" class="archive-article-date">
-  	<time datetime="2018-07-18T14:06:43.451Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/18/第十天学习/">Python基础第十天学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/18/一次综合小项目/" class="archive-article-date">
-  	<time datetime="2018-07-18T10:39:22.195Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/18/一次综合小项目/">一次综合小练习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/17/第九天学习/" class="archive-article-date">
-  	<time datetime="2018-07-17T13:04:31.069Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/17/第九天学习/">Python基础语法第九天学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/第八天学习/" class="archive-article-date">
-  	<time datetime="2018-07-14T06:37:34.814Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/第八天学习/">Python基础语法第八天学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/第七天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:19.034Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/第七天学习/">Python基础语法第七天学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/07/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/07/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -468,8 +342,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

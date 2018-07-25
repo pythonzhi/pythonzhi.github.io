@@ -155,6 +155,134 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-函数闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/25/函数闭包/">函数学习（再续）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/25/函数闭包/" class="archive-article-date">
+  	<time datetime="2018-07-25T12:36:26.090Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="函数的闭包与实例一（日志）"><a href="#函数的闭包与实例一（日志）" class="headerlink" title="函数的闭包与实例一（日志）"></a>函数的闭包与实例一（日志）</h2><h3 id="函数的闭包"><a href="#函数的闭包" class="headerlink" title="函数的闭包"></a>函数的闭包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">1）闭包格式：</span><br><span class="line">def funs():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'hello world'</span>)</span><br><span class="line">    def air():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'hello Python'</span>)</span><br><span class="line">    <span class="built_in">return</span> air</span><br><span class="line">f = funs()</span><br><span class="line">f()</span><br><span class="line">通过对例子的观察，我们发现，闭包函数的写法有如下特点：</span><br><span class="line">①闭包函数作为内部函数嵌套在外部函数中。</span><br><span class="line">②闭包函数会作为外部函数的返回值，进行返回。返回闭包函数时，只返回函数名（不带括号）。</span><br><span class="line">③外部调用时，首先要执行外部函数，然后将结果赋值给一个变量，此时该变量对应了闭包函数。</span><br><span class="line">④我们可以通过__closure__内部函数可以观察到，闭包函数的存在。前提是，闭包函数要与外部函数进行数据传递与调用。</span><br><span class="line"></span><br><span class="line">总结：必报使用的数据，必须是本身定义或外部函数中定义的相关变量，通常需要调用外部函数的数据，形成一个封闭的函数结构。</span><br><span class="line"></span><br><span class="line">2）闭包的应用——装饰器</span><br><span class="line">①概念：装饰器本身仍然是一个函数。是我们对闭包应用的一种具体实现。</span><br><span class="line">②作用：装饰器可以在不改变函数本身功能的情况下，为函数添加额外的功能。诸如：日志、测试、性能检测等。装饰器同样也是返回一个函数对象。</span><br><span class="line">③用法：</span><br><span class="line">使用格式如下：@+装饰器名称</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">def timer(f) :</span><br><span class="line">    def inner(*var) :</span><br><span class="line">        start_time = time.time()</span><br><span class="line">        f(*var)</span><br><span class="line">        time.sleep(0.3)</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'此函数执行时间为:&#123;0&#125;'</span>.format(str(end_time-start_time)))</span><br><span class="line">    <span class="built_in">return</span> inner</span><br><span class="line"></span><br><span class="line">@timer		<span class="comment">#此处就是装饰器的声明，这种声明我们称为语法糖。</span></span><br><span class="line">def func() :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'hello world'</span>)</span><br><span class="line"></span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+<h3 id="简单日志的使用"><a href="#简单日志的使用" class="headerlink" title="简单日志的使用"></a>简单日志的使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">def <span class="built_in">log</span>(msg) :</span><br><span class="line">    <span class="comment">#创建一个日志对象，并设置日志级别</span></span><br><span class="line">    logger = logging.getLogger(<span class="string">'Pythonlogger'</span>)</span><br><span class="line">    logger.setLevel(logging.INFO)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建一个handler，用来将日志内容存入文件中</span></span><br><span class="line">    file = logging.FileHandler(<span class="string">'test.log'</span>)</span><br><span class="line">    file.setLevel(logging.INFO)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建一个handler，用来将日志输出到控制台</span></span><br><span class="line">    console = logging.StreamHandler()</span><br><span class="line">    console.setLevel(logging.INFO)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#定义日志输出格式</span></span><br><span class="line">    formatter = logging.Formatter(<span class="string">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>)</span><br><span class="line">    file.setFormatter(formatter)</span><br><span class="line">    console.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#将logger添加到handler</span></span><br><span class="line">    logger.addHandler(file)</span><br><span class="line">    logger.addHandler(console)</span><br><span class="line">    </span><br><span class="line">    logger.info(msg)</span><br><span class="line"></span><br><span class="line">    logger.removeHandler(file)</span><br><span class="line">    logger.removeHandler(console)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义一个闭包函数调用日志函数生成日志</span></span><br><span class="line">def mylogger(f) :</span><br><span class="line">    def inner(*var) :</span><br><span class="line">        os.system(<span class="string">'cls'</span>)</span><br><span class="line">        <span class="keyword">if</span> f(*var) :</span><br><span class="line">            <span class="built_in">log</span>(f.__name__ + <span class="string">'操作成功'</span>)</span><br><span class="line">        <span class="keyword">else</span> :</span><br><span class="line">            <span class="built_in">log</span>(f.__name__ + <span class="string">'操作失败'</span>)</span><br><span class="line">    <span class="built_in">return</span> inner</span><br><span class="line"></span><br><span class="line"><span class="comment">#用户登录功能（日志的一个实例）</span></span><br><span class="line">@mylogger</span><br><span class="line">def load(username,password) :</span><br><span class="line">    flag = False</span><br><span class="line">    <span class="keyword">if</span> username == <span class="string">'zhangsan'</span> and password == <span class="string">'123456'</span>:</span><br><span class="line">        flag = True</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        flag = False</span><br><span class="line">    <span class="built_in">return</span> flag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">load(<span class="string">'zhangsan'</span>,<span class="string">'123456'</span>)</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/25/函数闭包/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-函数变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/25/函数变量/">函数学习（续）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/25/函数变量/" class="archive-article-date">
+  	<time datetime="2018-07-25T12:31:55.171Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="函数变量与函数嵌套"><a href="#函数变量与函数嵌套" class="headerlink" title="函数变量与函数嵌套"></a>函数变量与函数嵌套</h2><h3 id="局部变量与全局变量"><a href="#局部变量与全局变量" class="headerlink" title="局部变量与全局变量"></a>局部变量与全局变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1）Python中，函数在调用的时候Python才会给函数一个内存地址，用来执行函数内部的相关代码。</span><br><span class="line">2）PYthon程序在运行时，首先会将程序最外部的内容载入内存，并给其分配相关的内存空间。我们称这种变量为全局变量。</span><br><span class="line">3）函数中声明的变量，只有在函数被执行时，才会被分配内存空间进行执行，我们称这种变量为局部变量。</span><br><span class="line">4）Python程序执行的过程，执行函数时，首先会检查其函数内部的局部变量是否存在，如果存在就调用它，如果不存在，就从外部全局变量中进行调用，如果仍然没有发现相关内容，则报错。</span><br><span class="line">5）locals（）与globals（）</span><br><span class="line">在Python中，通过globals（）观察全局作用域中内容，包括：内置的，自定义函数，全局变量；</span><br><span class="line">通过locals（）能够观察局部域中内容，包括：局部变量，嵌套函数。</span><br><span class="line">6）当函数中出现嵌套情况时，最内层函数执行调用变量，会采用“就近原则”即先查找自身范围内的变量，如果没有找到，则向上查找，直到程序最外部结束。</span><br><span class="line">7）global与nonlocal</span><br><span class="line">global用来修饰局部变量时，表示该变量将作为全局变量来使用。即不仅在函数中可以被调用，同时在文件的最外部也可以被调用。</span><br><span class="line">nonlocal用来修饰嵌套函数内部的变量，对父级作用域（外层函数）中的变量进行引用和修改，那么从该层以下都将调用该变量的值。注意：该关键字只能影响其直接父级。</span><br><span class="line">使用global关键字修饰的变量之前，其变量可以不存在。</span><br><span class="line">nonlocal关键字修饰的变量，在嵌套作用域中必须已经存在，但不能是全局变量。</span><br><span class="line"></span><br><span class="line">总结：在函数中定义的变量，我们称为局部变量。包括在函数内部定义的变量、作为参数传递进来的变量。局部变量起作用的范围，我们称为，局部作用域。因为Python在调用局部变量时，需要给它分配内存地址，我们称为这个地址为局部命名空间。</span><br><span class="line">在文件最外层定义的变量，我们称为全局变量，可以在文件中的任意位置进行调用。全局变量起作用的范围，我们称为，全局作用域。Python在载入文件时，就需要给全局变量分配地址，这个地址我们称为全局命名空间。</span><br></pre></td></tr></table></figure>
+<h3 id="函数嵌套"><a href="#函数嵌套" class="headerlink" title="函数嵌套"></a>函数嵌套</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">根据Python中，对函数的载入和调用的特点，我们可以清楚地看到，当Python运行相关文件时，如果遇到函数时，会先将其名字载入到内存中（即为函数名指定一个内存地址）。因此，我们在使用函数名时，可以有以下三种情况：</span><br><span class="line">1）将函数名作为值赋值给变量</span><br><span class="line">例如：</span><br><span class="line">def  f1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">a = f1</span><br><span class="line">这时，变量a中的值就是f1()函数名的内存地址。</span><br><span class="line">2）将函数名作为容器的元素</span><br><span class="line">例如：</span><br><span class="line">def f1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">ls = [1, 2 ,f1]</span><br><span class="line">此时存入到列表ls中的f1，它的值仍然是该函数名对应的内存地址。</span><br><span class="line">3）将函数名作为另外一个函数的参数进行传递</span><br><span class="line">def f1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">def f2(x):</span><br><span class="line">    x()</span><br><span class="line">f2(f1)</span><br><span class="line">那么其执行结果为ok，这种方式类似于函数的普通嵌套。</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/25/函数变量/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-函数学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -649,138 +777,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/12/第七天学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-第六天学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/12/第六天学习/">Python基础语法第六天学习</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/12/第六天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:16.369Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><p>处理字符串常用函数（下）</p>
-<h3 id="连接符与重复符"><a href="#连接符与重复符" class="headerlink" title="连接符与重复符"></a>连接符与重复符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">‘+’：在字符串中，作为连接两个字符串，并返回一个新字符串的作用来使用。</span><br><span class="line">‘*’：重复操作指定的次数，即将字符串重复输出N次，返回一个新字符串。</span><br><span class="line">注意：在重复操作中，必须遵循字符串*正整数这样的格式，如果数值不是正整数，其结果返回一个空字符串；如果不是数值类型，程序报错。</span><br></pre></td></tr></table></figure>
-<h3 id="in运算符"><a href="#in运算符" class="headerlink" title="in运算符"></a>in运算符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">用来检测指定的内容是否在字符串中，如果存在则返回True；反之返回False。</span><br><span class="line">例如：</span><br><span class="line">&gt;&gt;&gt; <span class="string">'e'</span> <span class="keyword">in</span> a</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; <span class="string">'wor'</span> <span class="keyword">in</span> a</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; <span class="string">'we'</span> <span class="keyword">in</span> a</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/12/第六天学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-第五天学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/12/第五天学习/">Python基础语法第五天学习</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/12/第五天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:13.842Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><p>处理字符串常用函数（中）</p>
-<h3 id="strip（）函数"><a href="#strip（）函数" class="headerlink" title="strip（）函数"></a>strip（）函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">函数格式：str.strip([指定字符])</span><br><span class="line">返回值：根据指定的字符，对字符串进行两端去除其内容，返回一个新的字符串。如果字符串有空格或指定字符，那么该函数不起作用。</span><br><span class="line">例如：</span><br><span class="line">&gt;&gt;&gt; string1=<span class="string">'   hello world   '</span></span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(string1)</span><br><span class="line">   hello world   </span><br><span class="line">&gt;&gt;&gt; string1.strip()</span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(string1)</span><br><span class="line">   hello world  </span><br><span class="line"></span><br><span class="line">指定字符：</span><br><span class="line">&gt;&gt;&gt; string1=<span class="string">'ahello worda'</span></span><br><span class="line">&gt;&gt;&gt; string1.strip(<span class="string">'a'</span>)</span><br><span class="line"><span class="string">'hello word'</span></span><br><span class="line">注意：</span><br><span class="line">1）字符串类型一旦被声明赋值后，其内容是不可被改变的；如果需要改变原字符串变量的值，必须对其进行重新赋值。</span><br><span class="line">2）如果指定字符内容为一个字符序列，那么原字符两端只要含有指定字符的内容，那么都消除。</span><br><span class="line">例如：</span><br><span class="line">&gt;&gt;&gt; string3=<span class="string">'  hello worldab'</span></span><br><span class="line">&gt;&gt;&gt; string3.strip(<span class="string">' ab'</span>)</span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="replace（）替换函数"><a href="#replace（）替换函数" class="headerlink" title="replace（）替换函数"></a>replace（）替换函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">函数格式：str.replace(<span class="string">'old'</span>,<span class="string">'new'</span>[,max])</span><br><span class="line">返回值：将指定字符串（old）替换为新字符串（new），最大可替换max次，替换完成后，返回一个新的字符串。</span><br><span class="line">注意：此处的max参数，主要用来指定替换的次数，如果该参数缺省，表示替换所有符合条件的字符串。</span><br><span class="line">例如：</span><br><span class="line">&gt;&gt;&gt; string1=<span class="string">'vivo,oppo,apple,vivo,vivo'</span></span><br><span class="line">&gt;&gt;&gt; new_str=<span class="string">'xiaomi'</span></span><br><span class="line">&gt;&gt;&gt; old_str=<span class="string">'vivo'</span></span><br><span class="line">&gt;&gt;&gt; string1.replace(old_str,new_str,2)</span><br><span class="line"><span class="string">'xiaomi,oppo,apple,xiaomi,vivo'</span></span><br></pre></td></tr></table></figure>
-<h3 id="isalnum（）、isalpha（）、isdigit（）"><a href="#isalnum（）、isalpha（）、isdigit（）" class="headerlink" title="isalnum（）、isalpha（）、isdigit（）"></a>isalnum（）、isalpha（）、isdigit（）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">函数格式：</span><br><span class="line">str.isalnum()：判断字符串内容是否由数字与字母组成</span><br><span class="line">str.isalpha()：判断字符串内容是否由字母组成</span><br><span class="line">str.isdigit()：判断字符串内容是否由数字组成</span><br><span class="line">返回值：如果符合条件，返回True；如果条件不符合，返回False。</span><br></pre></td></tr></table></figure>
-<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="[]字符串运算符"></a>[]字符串运算符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">使用方法：str[索引位]=&gt;返回指定索引位的字符，</span><br><span class="line">索引位有两种表示方式：</span><br><span class="line">string=hello world</span><br><span class="line">第一种，string[0]=&gt;h	到string[10]=&gt;d</span><br><span class="line">第二种，string[-1]=&gt;d	到string[-11]=&gt;h</span><br><span class="line">切片操作：</span><br><span class="line">格式：str[star,end,step]</span><br><span class="line">start：开始的索引位</span><br><span class="line">end：结束的索引位（不含end位）</span><br><span class="line">step：每隔step-1个字符截取一个。</span><br><span class="line">string1=hello world</span><br><span class="line">string1[0:3]=&gt;hel	从索引位为0的字符开始到索引位3结束，但不包括索引位3所指向的字符。</span><br><span class="line">string1[2:4]=&gt;ll	</span><br><span class="line">string1[0:-1]=&gt;hello worl</span><br><span class="line">string1[0:8:2]=&gt;hlow</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; str1=<span class="string">'hello world'</span></span><br><span class="line">&gt;&gt;&gt; str1[:]</span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line">&gt;&gt;&gt; str1[:5]</span><br><span class="line"><span class="string">'hello'</span></span><br><span class="line">&gt;&gt;&gt; str1[::]</span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line"></span><br><span class="line">使用步长可实现字符串翻转：</span><br><span class="line">string1[-1：：-1]=&gt;dlrow olleh	从索引位-1开始，一直到字符串结束，反向输出字符</span><br><span class="line">但是，下列操作会返回空字符串：</span><br><span class="line">string1[-1:3]=&gt;<span class="string">''</span></span><br><span class="line">string1[-1:-5]=&gt;<span class="string">''</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/12/第五天学习/">展开全文 >></a>
         </p>
       
 
