@@ -155,6 +155,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-高阶函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/高阶函数/">高阶函数学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/26/高阶函数/" class="archive-article-date">
+  	<time datetime="2018-07-26T11:19:45.032Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">使用lambda关键字进行修饰，没有显式声明函数的名字。格式如下：</span><br><span class="line">lambda 参数：表达式</span><br><span class="line">注意：在使用匿名函数时，因为其自身的性质，其函数体的内容不能太过复杂。</span><br><span class="line">例如：</span><br><span class="line">def show(x) :</span><br><span class="line">    <span class="built_in">return</span> x*2      <span class="comment">#一般函数写法</span></span><br><span class="line"></span><br><span class="line">a = lambda x : x*2  <span class="comment">#匿名函数写法</span></span><br></pre></td></tr></table></figure>
+<h3 id="map函数（映射函数）"><a href="#map函数（映射函数）" class="headerlink" title="map函数（映射函数）"></a>map函数（映射函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">函数格式：map（func，iterable）</span><br><span class="line">返回值：返回一个map对象，这个对象是一个迭代器。</span><br><span class="line">说明：map函数主要作用是，将指定函数与序列中的元素进行映射，并完成函数中功能的批量操作，返回值为一个迭代器。我们可以使用<span class="keyword">for</span>循环或next（）函数进行遍历，通常情况下，如果映射的函数较为简单，我们就不单独声明函数，而是采用匿名函数来实现，这样也能提高运行效率。</span><br><span class="line">例如：</span><br><span class="line">def f(x):</span><br><span class="line">    <span class="built_in">return</span> x * x</span><br><span class="line">result = map(f,[1,2,3])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> result :</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">map函数还可以和匿名函数一起使用，例如：</span><br><span class="line">a = [<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line">result = map(lambda i:i.upper(),[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> result :</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+<h3 id="reduce函数（归纳函数）"><a href="#reduce函数（归纳函数）" class="headerlink" title="reduce函数（归纳函数）"></a>reduce函数（归纳函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">函数格式：reduce（func，iterator）</span><br><span class="line">返回值：返回函数计算结构，具体类型根据函数的返回值来定。</span><br><span class="line">说明：reduce函数中的func，一定要设为2个参数，用来接收迭代器返回的值。操作顺序为：首先接收第一和第二个值，进行运算；运算结果再与第三个值进行运算，以此类推，直到迭代器迭代完所有数据。</span><br><span class="line">例如：</span><br><span class="line">def f(x,y) :</span><br><span class="line">    <span class="built_in">return</span> x+y</span><br><span class="line">result = reduce(f,range(1,4))</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"></span><br><span class="line">reduce函数也可与匿名函数一起使用，例如：</span><br><span class="line">iter_list1 = iter([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line">result = reduce(lambda x,y:x+y,iter_list1)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+<h3 id="filter函数（过滤函数）"><a href="#filter函数（过滤函数）" class="headerlink" title="filter函数（过滤函数）"></a>filter函数（过滤函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">函数格式：filter（func，iterable）</span><br><span class="line">返回值：返回一个迭代器</span><br><span class="line">说明：过滤函数与映射函数类似，都需要将函数作用于序列中的每个元素，根据函数判断True or False返回相关元素。</span><br><span class="line">例如：</span><br><span class="line">def is_even(x):</span><br><span class="line">    <span class="built_in">return</span> x % 2 != 0</span><br><span class="line">l = filter(is_even,[0,1,2,3,4,5])</span><br><span class="line"><span class="built_in">print</span> ([i <span class="keyword">for</span> i <span class="keyword">in</span> l])</span><br><span class="line"></span><br><span class="line">它也可以与匿名函数一起使用，例如：</span><br><span class="line">str_tuple = (<span class="string">"hipython"</span>,<span class="string">"pyth"</span>,<span class="string">"lovepython"</span>,<span class="string">"PYTHON"</span>,<span class="string">"XMU"</span>)</span><br><span class="line">result = filter(lambda str_tuple:str_tuple.find(<span class="string">'python'</span>) != -1, str_tuple)</span><br><span class="line">n = 0</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> result:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    n += 1</span><br><span class="line"><span class="built_in">print</span>(n)</span><br><span class="line"></span><br><span class="line">补充知识：</span><br><span class="line">函数的递归调用</span><br><span class="line">递归概念：就是使用自身函数对自身进行调用，每调用一次将当前次的运行结果保存到函数的堆栈中，以副本形式保存，一直到最后完成全部调用。然后逐一向外将当前函数的结果返回并退出到其调用的位置。</span><br><span class="line">在Python中，通常推荐使用迭代，递归本身对内存的小号和运行效率低下的问题，较少使用。</span><br><span class="line"></span><br><span class="line">一个递归求阶乘的简单例子：</span><br><span class="line">def func(n) :</span><br><span class="line">    <span class="keyword">if</span> n == 1 :</span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        <span class="built_in">return</span> n * func(n-1)</span><br><span class="line"><span class="built_in">print</span>(func(5))</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/26/高阶函数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-函数闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -711,72 +777,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/14/第八天学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-第七天学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/12/第七天学习/">Python基础语法第七天学习</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/12/第七天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:19.034Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><p>控制语句</p>
-<h3 id="条件语句判断"><a href="#条件语句判断" class="headerlink" title="条件语句判断"></a>条件语句判断</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">条件语句</span><br><span class="line">单判断：</span><br><span class="line"><span class="keyword">if</span>  条件：</span><br><span class="line">    代码</span><br><span class="line">双分支：</span><br><span class="line"><span class="keyword">if</span>  条件：</span><br><span class="line">    代码</span><br><span class="line"><span class="keyword">else</span>：</span><br><span class="line">    代码</span><br><span class="line">多分支：</span><br><span class="line"><span class="keyword">if</span>  条件：</span><br><span class="line">    代码</span><br><span class="line"><span class="keyword">elif</span>  条件：</span><br><span class="line">    代码</span><br><span class="line"><span class="keyword">elif</span>  条件：</span><br><span class="line">    代码</span><br><span class="line">......</span><br><span class="line"><span class="keyword">else</span>：</span><br><span class="line">    代码</span><br></pre></td></tr></table></figure>
-<h3 id="逻辑运算符：and-or-not"><a href="#逻辑运算符：and-or-not" class="headerlink" title="逻辑运算符：and  or  not"></a>逻辑运算符：and  or  not</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">and：左右两端都是布尔值，其结果也为布尔型。当左右两端的值都为True时，结果为True，其他都为False。</span><br><span class="line">or：左右两端都是布尔值，其结果也为布尔型。当两端的值至少有一端为True时，结果为True，只有两端都为False时，结果才为False。</span><br><span class="line">not：为单目运算，其结果也是布尔型。其作用就是求反，如果变量为True，结果为False；如果变量为False，结果为True。</span><br><span class="line">逻辑运算、比较运算常用在条件中使用。同时，这两种运算符经常配合使用。</span><br></pre></td></tr></table></figure>
-<h3 id="循环控制语句"><a href="#循环控制语句" class="headerlink" title="循环控制语句"></a>循环控制语句</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>循环</span><br><span class="line">第一种：（官方推荐）</span><br><span class="line"><span class="keyword">for</span>   变量   <span class="keyword">in</span>   集合：</span><br><span class="line">	代码</span><br><span class="line">说明：该循环我们成为快速迭代循环，能够对集合数据进行遍历。</span><br><span class="line">注意：这种方式只能用在集合数据上，比如：字符串、列表、元组、字典等。</span><br><span class="line">例如：</span><br><span class="line">string1 = <span class="string">'hello world'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> string1:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">结果：</span><br><span class="line">h</span><br><span class="line">e</span><br><span class="line">l</span><br><span class="line">l</span><br><span class="line">o</span><br><span class="line"></span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">第二种：传统式，配合range（）函数使用，通过range函数指定了循环的范围。</span><br><span class="line"><span class="keyword">for</span>   i   range（循环次数）：</span><br><span class="line">	代码</span><br><span class="line">说明：这种循环方式，采用指定循环次数，对目标集合进行遍历。其做法主要是让循环与集合的下标同步，在循环次数时，一同取出集合指定下标的对应值。</span><br><span class="line">range（）函数：</span><br><span class="line">函数格式：range（[star，]stop[，step]）</span><br><span class="line">其中，star时循环打印开始的位置，stop是循环次数，step循环的步长。缺省情况下range（5）表示从0开始，循环5次。</span><br><span class="line">例如：</span><br><span class="line">string1 = <span class="string">'hello world'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5):</span><br><span class="line">    <span class="built_in">print</span>(string1[i],end=<span class="string">' '</span>)</span><br><span class="line">结果：h e l l o</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>循环的常用方式：嵌套</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">in</span> range(次数):</span><br><span class="line">      <span class="keyword">for</span> <span class="keyword">in</span> range(次数):</span><br><span class="line">注意：在这种嵌套表示的过程中，变量的位置尤为重要，通用原则为:如果变量的值需要通过外层循环来获取或生成，那么我们可以将其设为全局变量，即与外层循环<span class="keyword">for</span>同等级的变量，如果变量需要在内层循环中生成或或许，我们通常会在外循环中声明，即与内循环同级。</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>循环</span><br><span class="line">格式：<span class="keyword">while</span>（判断条件）：</span><br><span class="line">	代码</span><br><span class="line"></span><br><span class="line"><span class="built_in">break</span>和<span class="built_in">continue</span></span><br><span class="line"><span class="built_in">break</span>：当满足指定条件时，跳出此循环，继续执行循环外部其他代码。</span><br><span class="line"><span class="built_in">continue</span>：当满足指定条件时，结束本次循环，开始下次循环。<span class="built_in">continue</span>不会跳出此循环。</span><br><span class="line">这两个关键字都是必须配合循环语句使用，不能单独用在其他地方，比如：<span class="keyword">if</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/12/第七天学习/">展开全文 >></a>
         </p>
       
 
