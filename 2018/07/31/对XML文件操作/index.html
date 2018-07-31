@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | mypythonbook</title>
+  <title>Python对XML文件的解析 | mypythonbook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Python�����桢Web����">
-<meta property="og:type" content="website">
-<meta property="og:title" content="mypythonbook">
-<meta property="og:url" content="http://yoursite.com/archives/2018/page/3/index.html">
+  <meta name="description" content="XML解析的两种方式：DOM与SAX12345DOM：文档对象模型，是Python处理XML文件的标准模式。一个DOM的解析器在解析XML文档时，一次性读入整个文档，把文档中的所有元素（标签和文本）保存在内存中的一个树形结构，然后我们可以利用DOM提供的各种函数来读取或修改文档中的内容。SAX：是一种事件驱动的API，利用SAX解析XML。主要使用解析器负责读取XML文档，并向事件处理器发送事件。">
+<meta name="keywords" content="Python�����桢Web����">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python对XML文件的解析">
+<meta property="og:url" content="http://yoursite.com/2018/07/31/对XML文件操作/index.html">
 <meta property="og:site_name" content="mypythonbook">
+<meta property="og:description" content="XML解析的两种方式：DOM与SAX12345DOM：文档对象模型，是Python处理XML文件的标准模式。一个DOM的解析器在解析XML文档时，一次性读入整个文档，把文档中的所有元素（标签和文本）保存在内存中的一个树形结构，然后我们可以利用DOM提供的各种函数来读取或修改文档中的内容。SAX：是一种事件驱动的API，利用SAX解析XML。主要使用解析器负责读取XML文档，并向事件处理器发送事件。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-31T12:40:46.578Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mypythonbook">
+<meta name="twitter:title" content="Python对XML文件的解析">
+<meta name="twitter:description" content="XML解析的两种方式：DOM与SAX12345DOM：文档对象模型，是Python处理XML文件的标准模式。一个DOM的解析器在解析XML文档时，一次性读入整个文档，把文档中的所有元素（标签和文本）保存在内存中的一个树形结构，然后我们可以利用DOM提供的各种函数来读取或修改文档中的内容。SAX：是一种事件驱动的API，利用SAX解析XML。主要使用解析器负责读取XML文档，并向事件处理器发送事件。">
   
     <link rel="alternative" href="/atom.xml" title="mypythonbook" type="application/atom+xml">
   
@@ -153,79 +157,159 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-对XML文件操作" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/11/IF判断语句联系/" class="archive-article-date">
-  	<time datetime="2018-07-11T13:57:11.733Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/11/IF判断语句联系/">IF语句的小应用</a>
+    <h1 class="article-title" itemprop="name">
+      Python对XML文件的解析
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/09/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-09T11:17:44.714Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
+        
+        <a href="/2018/07/31/对XML文件操作/" class="archive-article-date">
+  	<time datetime="2018-07-31T12:26:40.184Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/09/hello-world/">Hello World</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="XML解析的两种方式：DOM与SAX"><a href="#XML解析的两种方式：DOM与SAX" class="headerlink" title="XML解析的两种方式：DOM与SAX"></a>XML解析的两种方式：DOM与SAX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DOM：文档对象模型，是Python处理XML文件的标准模式。一个DOM的解析器在解析XML文档时，一次性读入整个文档，把文档中的所有元素（标签和文本）保存在内存中的一个树形结构，然后我们可以利用DOM提供的各种函数来读取或修改文档中的内容。</span><br><span class="line">SAX：是一种事件驱动的API，利用SAX解析XML。主要使用解析器负责读取XML文档，并向事件处理器发送事件。比如：元素开始（&lt;tag&gt;）、元素结束（&lt;/tag&gt;）。常用在：</span><br><span class="line">1）大型文档的处理</span><br><span class="line">2）只需要文件的部分内容，或者从文件中得到特定的部分</span><br><span class="line">3）能够建立自己的对象模型。</span><br></pre></td></tr></table></figure>
+<p>DOM与SAX的对比：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">1. DOM解析需要读取整个文档到内存中，并且将所有元素保存到树形结构，那也就意味着，可以根据树形结构导航到任意节点获取其相关内容。</span><br><span class="line">2. SAX解析文档，使用将文档边读入边解析的方式，不需要一次性读入全部文档内容，只需要读入一部分即可。同时，因为其边读入边解析的工作方式，能够适应大文件的解析，提高解析效率。</span><br><span class="line"></span><br><span class="line">SAX解析文件步骤：</span><br><span class="line">1.创建解析器</span><br><span class="line">parser = sax.make_parser()</span><br><span class="line"></span><br><span class="line">2. 读取XML文档</span><br><span class="line">xml.sax.parse(xmlfile)</span><br><span class="line"></span><br><span class="line">3. 设置ContentHandler对象，重写startDocument()、endDocument()、startElement(name,attrs)、endElement(name)函数</span><br><span class="line"></span><br><span class="line">4. startDocument()：文档载入时调用，文档开始</span><br><span class="line">    endDocument()：当解析器达到文档结尾时，调用。</span><br><span class="line">    startElement(name,attrs)：当遇到XML标签时调用。name：标签的名字。attrs：标签的属性字典</span><br><span class="line">    endElement(name)：当遇到XML标签结束时调用。name：标签名。</span><br><span class="line"></span><br><span class="line">5. 使用SAX解析文件，需要为解析器配置ContentHandler，定义了如何解析标签，以及处理标签间文本内容的业务逻辑。</span><br></pre></td></tr></table></figure>
+<h3 id="DOM解析的一个实例"><a href="#DOM解析的一个实例" class="headerlink" title="DOM解析的一个实例"></a>DOM解析的一个实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">from xml.dom import minidom <span class="comment">#引入minidom，以dom方式解析xml文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#解析(打开)XML文件</span></span><br><span class="line">dom = minidom.parse(<span class="string">'test.xml'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#得到文档的元素对象</span></span><br><span class="line">root = dom.documentElement</span><br><span class="line"><span class="built_in">print</span>(root.nodeName)    <span class="comment">#获得节点名字，即标签名</span></span><br><span class="line"><span class="built_in">print</span>(root.nodeValue)   <span class="comment">#获得节点值</span></span><br><span class="line"><span class="built_in">print</span>(root.nodeType)    <span class="comment">#获得节点类型</span></span><br><span class="line"></span><br><span class="line">nodes = root.getElementsByTagName(<span class="string">'car'</span>)    <span class="comment">#获得在根节点下，所有名字是car的节点对象</span></span><br><span class="line"><span class="comment">#获得car节点中，第一个节点中brand子节点的文本内容</span></span><br><span class="line"><span class="built_in">print</span>(nodes[1].nodeName)</span><br><span class="line"><span class="built_in">print</span>(nodes[0].getElementsByTagName(<span class="string">'brand'</span>)[0].firstChild.data)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(nodes[0].childNodes)):</span><br><span class="line">    <span class="keyword">if</span> nodes[0].childNodes[i].nodeType == 1 :</span><br><span class="line">        <span class="built_in">print</span>(nodes[0].childNodes[i].nodeName,end = <span class="string">' '</span>)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(nodes)) :</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'brand'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'conpany'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'price'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'color'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'model'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'country'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+<h3 id="ElementTree解析的一个实例"><a href="#ElementTree解析的一个实例" class="headerlink" title="ElementTree解析的一个实例"></a>ElementTree解析的一个实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from xml.etree import ElementTree</span><br><span class="line">tree = ElementTree.parse(<span class="string">'test.xml'</span>)</span><br><span class="line">root = tree.getroot() <span class="comment"># 读取到根节点</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> root :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'遍历root'</span>, child.tag,<span class="string">'----------&gt;'</span>,child.attrib)</span><br><span class="line">    <span class="keyword">for</span> node <span class="keyword">in</span> child :</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'遍历child'</span>, node.tag,<span class="string">'----------&gt;'</span>,node.text)</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/31/对XML文件操作/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/07/30/文档二进制和Excel表格操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -252,8 +336,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

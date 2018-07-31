@@ -155,6 +155,73 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-对XML文件操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/31/对XML文件操作/">Python对XML文件的解析</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/31/对XML文件操作/" class="archive-article-date">
+  	<time datetime="2018-07-31T12:26:40.184Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="XML解析的两种方式：DOM与SAX"><a href="#XML解析的两种方式：DOM与SAX" class="headerlink" title="XML解析的两种方式：DOM与SAX"></a>XML解析的两种方式：DOM与SAX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DOM：文档对象模型，是Python处理XML文件的标准模式。一个DOM的解析器在解析XML文档时，一次性读入整个文档，把文档中的所有元素（标签和文本）保存在内存中的一个树形结构，然后我们可以利用DOM提供的各种函数来读取或修改文档中的内容。</span><br><span class="line">SAX：是一种事件驱动的API，利用SAX解析XML。主要使用解析器负责读取XML文档，并向事件处理器发送事件。比如：元素开始（&lt;tag&gt;）、元素结束（&lt;/tag&gt;）。常用在：</span><br><span class="line">1）大型文档的处理</span><br><span class="line">2）只需要文件的部分内容，或者从文件中得到特定的部分</span><br><span class="line">3）能够建立自己的对象模型。</span><br></pre></td></tr></table></figure>
+<p>DOM与SAX的对比：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">1. DOM解析需要读取整个文档到内存中，并且将所有元素保存到树形结构，那也就意味着，可以根据树形结构导航到任意节点获取其相关内容。</span><br><span class="line">2. SAX解析文档，使用将文档边读入边解析的方式，不需要一次性读入全部文档内容，只需要读入一部分即可。同时，因为其边读入边解析的工作方式，能够适应大文件的解析，提高解析效率。</span><br><span class="line"></span><br><span class="line">SAX解析文件步骤：</span><br><span class="line">1.创建解析器</span><br><span class="line">parser = sax.make_parser()</span><br><span class="line"></span><br><span class="line">2. 读取XML文档</span><br><span class="line">xml.sax.parse(xmlfile)</span><br><span class="line"></span><br><span class="line">3. 设置ContentHandler对象，重写startDocument()、endDocument()、startElement(name,attrs)、endElement(name)函数</span><br><span class="line"></span><br><span class="line">4. startDocument()：文档载入时调用，文档开始</span><br><span class="line">    endDocument()：当解析器达到文档结尾时，调用。</span><br><span class="line">    startElement(name,attrs)：当遇到XML标签时调用。name：标签的名字。attrs：标签的属性字典</span><br><span class="line">    endElement(name)：当遇到XML标签结束时调用。name：标签名。</span><br><span class="line"></span><br><span class="line">5. 使用SAX解析文件，需要为解析器配置ContentHandler，定义了如何解析标签，以及处理标签间文本内容的业务逻辑。</span><br></pre></td></tr></table></figure>
+<h3 id="DOM解析的一个实例"><a href="#DOM解析的一个实例" class="headerlink" title="DOM解析的一个实例"></a>DOM解析的一个实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">from xml.dom import minidom <span class="comment">#引入minidom，以dom方式解析xml文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#解析(打开)XML文件</span></span><br><span class="line">dom = minidom.parse(<span class="string">'test.xml'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#得到文档的元素对象</span></span><br><span class="line">root = dom.documentElement</span><br><span class="line"><span class="built_in">print</span>(root.nodeName)    <span class="comment">#获得节点名字，即标签名</span></span><br><span class="line"><span class="built_in">print</span>(root.nodeValue)   <span class="comment">#获得节点值</span></span><br><span class="line"><span class="built_in">print</span>(root.nodeType)    <span class="comment">#获得节点类型</span></span><br><span class="line"></span><br><span class="line">nodes = root.getElementsByTagName(<span class="string">'car'</span>)    <span class="comment">#获得在根节点下，所有名字是car的节点对象</span></span><br><span class="line"><span class="comment">#获得car节点中，第一个节点中brand子节点的文本内容</span></span><br><span class="line"><span class="built_in">print</span>(nodes[1].nodeName)</span><br><span class="line"><span class="built_in">print</span>(nodes[0].getElementsByTagName(<span class="string">'brand'</span>)[0].firstChild.data)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(nodes[0].childNodes)):</span><br><span class="line">    <span class="keyword">if</span> nodes[0].childNodes[i].nodeType == 1 :</span><br><span class="line">        <span class="built_in">print</span>(nodes[0].childNodes[i].nodeName,end = <span class="string">' '</span>)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(nodes)) :</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'brand'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'conpany'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'price'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'color'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'model'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'country'</span>)[i].firstChild.data,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+<h3 id="ElementTree解析的一个实例"><a href="#ElementTree解析的一个实例" class="headerlink" title="ElementTree解析的一个实例"></a>ElementTree解析的一个实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from xml.etree import ElementTree</span><br><span class="line">tree = ElementTree.parse(<span class="string">'test.xml'</span>)</span><br><span class="line">root = tree.getroot() <span class="comment"># 读取到根节点</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> root :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'遍历root'</span>, child.tag,<span class="string">'----------&gt;'</span>,child.attrib)</span><br><span class="line">    <span class="keyword">for</span> node <span class="keyword">in</span> child :</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'遍历child'</span>, node.tag,<span class="string">'----------&gt;'</span>,node.text)</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/31/对XML文件操作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-文档二进制和Excel表格操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -711,69 +778,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/18/第十天学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-一次综合小项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/18/一次综合小项目/">一次综合小练习</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/18/一次综合小项目/" class="archive-article-date">
-  	<time datetime="2018-07-18T10:39:22.195Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="关于商品信息查询修改删除和购买的小项目"><a href="#关于商品信息查询修改删除和购买的小项目" class="headerlink" title="关于商品信息查询修改删除和购买的小项目"></a>关于商品信息查询修改删除和购买的小项目</h2><h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">goods = &#123;</span><br><span class="line">    <span class="string">'goods_no'</span>:[<span class="string">'10001'</span>,<span class="string">'10002'</span>,<span class="string">'10003'</span>],</span><br><span class="line">    <span class="string">'10001'</span>:&#123;</span><br><span class="line">            <span class="string">'id'</span>:<span class="string">'10001'</span>,</span><br><span class="line">            <span class="string">'name'</span>:<span class="string">'电视机'</span>,</span><br><span class="line">            <span class="string">'price'</span>:2100,</span><br><span class="line">            <span class="string">'address'</span>:<span class="string">'郑州'</span>,</span><br><span class="line">            <span class="string">'num'</span>:23,</span><br><span class="line">            <span class="string">'brand'</span>:<span class="string">'apple'</span></span><br><span class="line">            &#125;,</span><br><span class="line">    <span class="string">'10002'</span>:&#123;</span><br><span class="line">            <span class="string">'id'</span>:<span class="string">'10002'</span>,</span><br><span class="line">            <span class="string">'name'</span>:<span class="string">'床垫'</span>,</span><br><span class="line">            <span class="string">'price'</span>:2500,</span><br><span class="line">            <span class="string">'address'</span>:<span class="string">'洛阳'</span>,</span><br><span class="line">            <span class="string">'num'</span>:10,</span><br><span class="line">            <span class="string">'brand'</span>:<span class="string">'席梦思'</span></span><br><span class="line">            &#125;,</span><br><span class="line">    <span class="string">'10003'</span>:&#123;</span><br><span class="line">            <span class="string">'id'</span>:<span class="string">'10003'</span>,</span><br><span class="line">            <span class="string">'name'</span>:<span class="string">'笔记本电脑'</span>,</span><br><span class="line">            <span class="string">'price'</span>:5000,</span><br><span class="line">            <span class="string">'address'</span>:<span class="string">'开封'</span>,</span><br><span class="line">            <span class="string">'num'</span>:25,</span><br><span class="line">            <span class="string">'brand'</span>:<span class="string">'华硕ASUS'</span></span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'商品编号          商品名称'</span>)</span><br><span class="line"><span class="keyword">for</span> no <span class="keyword">in</span> goods[<span class="string">'goods_no'</span>]:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'&#123;0&#125;            &#123;1&#125;'</span>.format(no,goods[no][<span class="string">'name'</span>]))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'欢迎进入系统！'</span>)</span><br><span class="line"><span class="keyword">while</span> True :</span><br><span class="line">    num = input(<span class="string">'请输入目标的商品编号,退出系统请输入Q或q:'</span>)</span><br><span class="line">    <span class="keyword">if</span> num == <span class="string">'Q'</span> or num == <span class="string">'q'</span> :</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'谢谢惠顾，欢迎下次光临！'</span>)</span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        <span class="keyword">if</span> num <span class="keyword">in</span> goods[<span class="string">'goods_no'</span>] :</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'*'</span>*30)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'1、查询商品信息'</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'2、购买商品'</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'3、修改商品价格和数量'</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'4、添加新商品'</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'5、删除商品信息'</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'6、退出'</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'*'</span>*30)</span><br><span class="line">            <span class="keyword">while</span> True :</span><br><span class="line">                op = input(<span class="string">'请输入您需要的操作：返回上一级请输入Q或者q:'</span>)</span><br><span class="line">                <span class="keyword">if</span> op == <span class="string">'Q'</span> or op == <span class="string">'q'</span> :</span><br><span class="line">                    <span class="built_in">break</span></span><br><span class="line">                <span class="keyword">else</span> :</span><br><span class="line">                    <span class="keyword">if</span> op == <span class="string">'1'</span> :</span><br><span class="line">                        <span class="built_in">print</span>(<span class="string">'商品属性          属性内容'</span>)</span><br><span class="line">                        <span class="keyword">for</span> i <span class="keyword">in</span> goods[num].keys() :</span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">'&#123;0&#125;            &#123;1&#125;'</span>.format(i,goods[num][i]))</span><br><span class="line">                    <span class="keyword">elif</span> op == <span class="string">'2'</span> :</span><br><span class="line">                        buy_num = int(input(<span class="string">'请输入您要购买的数量：'</span>))</span><br><span class="line">                        <span class="keyword">if</span> buy_num &gt; goods[num][<span class="string">'num'</span>] :</span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">'购买数量大于库存，购买失败！'</span>)</span><br><span class="line">                            <span class="built_in">continue</span></span><br><span class="line">                        <span class="keyword">else</span> :</span><br><span class="line">                            goods[num][<span class="string">'num'</span>] = goods[num][<span class="string">'num'</span>] - buy_num</span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">'您共消费了&#123;0&#125;元！'</span>.format(goods[num][<span class="string">'price'</span>]*buy_num))</span><br><span class="line">                    <span class="keyword">elif</span> op == <span class="string">'3'</span> :</span><br><span class="line">                        new_price = int(input(<span class="string">'请输入要修改的价格：'</span>))</span><br><span class="line">                        new_num = int(input(<span class="string">'请输入商品的补入数目:'</span>))</span><br><span class="line">                        goods[num][<span class="string">'price'</span>] = new_price</span><br><span class="line">                        goods[num][<span class="string">'num'</span>] = goods[num][<span class="string">'num'</span>] + new_num</span><br><span class="line">                        <span class="built_in">print</span>(<span class="string">'商品价格和数量修改成功！'</span>)</span><br><span class="line">                    <span class="keyword">elif</span> op == <span class="string">'4'</span> :</span><br><span class="line">                        new_good_id = input(<span class="string">'请输入添加商品的ID：'</span>)</span><br><span class="line">                        <span class="keyword">if</span> new_good_id <span class="keyword">in</span> goods[<span class="string">'goods_no'</span>] :</span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">'已存在此商品ID，请重新输入！'</span>)</span><br><span class="line">                            <span class="built_in">continue</span></span><br><span class="line">                        <span class="keyword">else</span> :</span><br><span class="line">                            new_good_name = input(<span class="string">'请输入添加商品的名称：'</span>)</span><br><span class="line">                            new_good_price = int(input(<span class="string">'请输入添加商品的价格：'</span>))</span><br><span class="line">                            new_good_address = input(<span class="string">'请输入添加商品的生产地：'</span>)</span><br><span class="line">                            new_good_num = int(input(<span class="string">'请输入添加商品的数量：'</span>))</span><br><span class="line">                            new_good_brand = input(<span class="string">'请输入添加商品的品牌：'</span>)</span><br><span class="line">                            goods[<span class="string">'goods_no'</span>].append(new_good_id)</span><br><span class="line">                            goods[new_good_id] = &#123;</span><br><span class="line">                                <span class="string">'id'</span>:new_good_id,</span><br><span class="line">                                <span class="string">'name'</span>:new_good_name,</span><br><span class="line">                                <span class="string">'price'</span>:new_good_price,</span><br><span class="line">                                <span class="string">'address'</span>:new_good_address,</span><br><span class="line">                                <span class="string">'num'</span>:new_good_num,</span><br><span class="line">                                <span class="string">'brand'</span>:new_good_brand</span><br><span class="line">                                &#125;</span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">'新商品添加成功！'</span>)</span><br><span class="line">                    <span class="keyword">elif</span> op == <span class="string">'5'</span> :</span><br><span class="line">                        ok = input(<span class="string">'您确定要删除此商品信息么？确定：Y/y  取消N/n:'</span>)</span><br><span class="line">                        <span class="keyword">if</span> ok == <span class="string">'Y'</span> or ok == <span class="string">'y'</span> :</span><br><span class="line">                            goods[<span class="string">'goods_no'</span>].remove(num)</span><br><span class="line">                            goods.pop(num)</span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">'商品信息删除成功'</span>)</span><br><span class="line">                            <span class="built_in">break</span></span><br><span class="line">                        <span class="keyword">else</span> :</span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">'商品信息删除失败'</span>)</span><br><span class="line">                    <span class="keyword">elif</span> op == <span class="string">'6'</span> :</span><br><span class="line">                        <span class="built_in">break</span></span><br><span class="line">                    <span class="keyword">else</span> :</span><br><span class="line">                        <span class="built_in">print</span>(<span class="string">'没有此操作，请重新输入！'</span>)</span><br><span class="line">                        <span class="built_in">continue</span></span><br><span class="line">        <span class="keyword">else</span> :</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'商品编号不存在，请重新输入商品编号！'</span>)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/18/一次综合小项目/">展开全文 >></a>
         </p>
       
 
