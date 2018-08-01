@@ -155,6 +155,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-类包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/类包/">Python中的包与模块</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/01/类包/" class="archive-article-date">
+  	<time datetime="2018-08-01T11:41:36.191Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="包与模块"><a href="#包与模块" class="headerlink" title="包与模块"></a>包与模块</h2><h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1）基本概念：在Python中进行Python定义和声明的文件，以.py结尾。使用import或from        import导入的文件，我们称之为模块。</span><br><span class="line">2）模块的优势</span><br><span class="line">1.使用模块可以将常用的功能和变量，统一分类存储在不同的文件中，在使用时进行导入。提高了代码的可维护性。</span><br><span class="line">2. 使用模块因为将常用功能进行了统一调用，提供了代码的复用性。</span><br><span class="line">3. 解决了在同一个文件中，方法和变量重名的问题。</span><br><span class="line">3）导入时的问题</span><br><span class="line">如果导入了与文件同名的函数时，需要使用模块名调用函数，与文件中的函数进行分区，例如：</span><br><span class="line">from my import sum1</span><br><span class="line"></span><br><span class="line">def sum1(b,c) :</span><br><span class="line">    d = b-c</span><br><span class="line">    <span class="built_in">return</span> d</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sum1(6,7))</span><br><span class="line"><span class="built_in">print</span>(my.sum1(5,6))</span><br><span class="line">4）模块可以在Python文件中，实现多次import导入，但是只有一次导入时才真正将模块中的内容运行、方法载入，其他在进行导入时，Python解析器会先检测是否已经载入该模块，如果载入就不在执行相关操作。</span><br><span class="line">总结：</span><br><span class="line">模块载入一共分三个步骤：</span><br><span class="line">1、为模块的导入，创建命名空间。被载入的文件按照全局作用域来使用。</span><br><span class="line">2、模块载入后，将在上一步操作中创建命名空间中，执行模块中的代码。</span><br><span class="line">3、创建一个模块的名字来引用模块所在的命名空间。my.sum1()</span><br><span class="line">5）当使用from    import引入多个模块时，同时多个模块存在同名函数，那么在程序中调用该函数时，以程序导入的最后一个模块的函数为准。</span><br></pre></td></tr></table></figure>
+<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1）概念：包在Python中定义为可以包含多个模块文件的目录，其中必须要包含一个名为“__init__.py”的文件，用来初始化包。</span><br><span class="line">2）包在调用的时候，首先会初始化__innit__.py文件，主要功能为包中模块运行时提供所需要的相关数据，比如：数据库用户名称、密码、地址等内容。</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/01/类包/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-对XML文件操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -712,72 +776,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/19/一次知识扩展/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-第十天学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/18/第十天学习/">Python基础第十天学习</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/18/第十天学习/" class="archive-article-date">
-  	<time datetime="2018-07-18T14:06:43.451Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="集合的概念"><a href="#集合的概念" class="headerlink" title="集合的概念"></a>集合的概念</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">集合的概念：集合是一个无序的数据集合，可以存储各种数据类型的元素，同时，可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。并且集合不允许有重复元素，如果出现重复元素则去重。</span><br><span class="line">注意：<span class="built_in">set</span>是无序的，即存储元素到<span class="built_in">set</span>中的顺序与这些元素输出的顺序无关。<span class="built_in">set</span>仍然是采用<span class="built_in">hash</span>算法，对这些元素进行存储的。</span><br></pre></td></tr></table></figure>
-<h3 id="集合的声明和赋值"><a href="#集合的声明和赋值" class="headerlink" title="集合的声明和赋值"></a>集合的声明和赋值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set1 = &#123;1,2,3&#125;	生成一个集合</span><br><span class="line">set1 = <span class="built_in">set</span>（&#123;1,2,3&#125;）</span><br><span class="line">set1 = <span class="built_in">set</span>（）	生成一个空集合，请注意集合只能用<span class="built_in">set</span>（）函数来生成空集合，而不是通过set1 = &#123;&#125;，这个表达式会生成一个空字典。</span><br></pre></td></tr></table></figure>
-<h3 id="数据类型转换以及集合的操作"><a href="#数据类型转换以及集合的操作" class="headerlink" title="数据类型转换以及集合的操作"></a>数据类型转换以及集合的操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">字符串转成集合</span><br><span class="line">string1 = <span class="string">'hello'</span></span><br><span class="line">set1 = <span class="built_in">set</span>(string1)</span><br><span class="line">=&gt;&#123;<span class="string">'h'</span>, <span class="string">'o'</span>, <span class="string">'l'</span>, <span class="string">'e'</span>&#125;</span><br><span class="line">列表转集合</span><br><span class="line">list1 = [<span class="string">'h'</span>,<span class="string">'e'</span>,<span class="string">'l'</span>,<span class="string">'l'</span>,<span class="string">'o'</span>]</span><br><span class="line">set1 = <span class="built_in">set</span>(list1)</span><br><span class="line">=&gt;&#123;<span class="string">'o'</span>, <span class="string">'e'</span>, <span class="string">'h'</span>, <span class="string">'l'</span>&#125;</span><br><span class="line">元组转集合</span><br><span class="line">tup = (<span class="string">'h'</span>,<span class="string">'e'</span>,<span class="string">'l'</span>,<span class="string">'l'</span>,<span class="string">'o'</span>)</span><br><span class="line">set1 = <span class="built_in">set</span>(tup)</span><br><span class="line">=&gt;&#123;<span class="string">'l'</span>, <span class="string">'e'</span>, <span class="string">'o'</span>, <span class="string">'h'</span>&#125;</span><br><span class="line"></span><br><span class="line">集合操作</span><br><span class="line">1）元素的增加add（）</span><br><span class="line">函数格式：set.add（元素）</span><br><span class="line">返回值：无返回值</span><br><span class="line">结果：集合元素加一个</span><br><span class="line">例如：</span><br><span class="line">set1 = &#123;1,2,3&#125;</span><br><span class="line">set1.add(4)</span><br><span class="line">=&gt;&#123;1, 2, 3, 4&#125;</span><br><span class="line">2)</span><br><span class="line">元素的删除</span><br><span class="line">①、remove（）</span><br><span class="line">函数格式：set.remove（元素）</span><br><span class="line">返回值：无返回值</span><br><span class="line">结果：集合中指定的元素被删除</span><br><span class="line">例如：</span><br><span class="line">set1 = &#123;1,2,3&#125;</span><br><span class="line">set1.remove(3)</span><br><span class="line">=&gt;&#123;1, 2&#125;</span><br><span class="line">②、discard（）</span><br><span class="line">函数格式：set.discard（元素）</span><br><span class="line">返回值：无返回值</span><br><span class="line">结果：集合中指定的元素被删除</span><br><span class="line">例如：</span><br><span class="line">set1 = &#123;1,2,3&#125;</span><br><span class="line">set1.discard(3)</span><br><span class="line">=&gt;&#123;1, 2&#125;</span><br><span class="line">注意：上面两个方法，如果删除一个不存在的元素，其中remove（）会报错，而discard（）无反应</span><br><span class="line">③、clear（）</span><br><span class="line">函数格式：set.clear（）</span><br><span class="line">返回值：无返回值</span><br><span class="line">结果：清空集合</span><br><span class="line">例如：</span><br><span class="line">set1 = &#123;1,2,3&#125;</span><br><span class="line">set1.clear()</span><br><span class="line">=&gt;<span class="built_in">set</span>()</span><br><span class="line">④、del命令删除集合，并释放其所占内存资源</span><br><span class="line">del <span class="built_in">set</span></span><br></pre></td></tr></table></figure>
-<h3 id="集合的运算以及常用函数"><a href="#集合的运算以及常用函数" class="headerlink" title="集合的运算以及常用函数"></a>集合的运算以及常用函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">1）并集运算（）</span><br><span class="line">两个集合进行并集运算，即将两个集合中的元素都合并到一个新的集合中，重复的元素只出现一次。</span><br><span class="line">例如：</span><br><span class="line">set1 = &#123;1,2,3&#125;</span><br><span class="line">set2 = &#123;3,4,5&#125;</span><br><span class="line">set3 = set1 | set2</span><br><span class="line">=&gt;&#123;1, 2, 3, 4, 5&#125;</span><br><span class="line">union（）函数</span><br><span class="line">函数格式：set1.union(set2)</span><br><span class="line">返回值：返回一个合并后的新集合</span><br><span class="line">例如：</span><br><span class="line">set1 = &#123;1,2,3&#125;</span><br><span class="line">set2 = &#123;3,4,5&#125;</span><br><span class="line">set3 = set1.union(set2)</span><br><span class="line">=&gt;&#123;1, 2, 3, 4, 5&#125;</span><br><span class="line">2）交集运算（&amp;）或intersection（）</span><br><span class="line">两个集合进行交集运算，即将两个集合中相同的元素合并到一个新的集合中。</span><br><span class="line">set1 = &#123;1,2,3&#125;</span><br><span class="line">set2 = &#123;3,4,5&#125;</span><br><span class="line">set3 = set1.intersection(set2)</span><br><span class="line">=&gt;&#123;3&#125;</span><br><span class="line">3）差集运算（-）或difference()</span><br><span class="line">两个元素进行差集运算，即运算符左边的集合，与运算右边的集合进行差运算，相当于使用左边集合去除与右边集合相同的元素。</span><br><span class="line">set1 = &#123;1,2,3&#125;</span><br><span class="line">set2 = &#123;3,4,5&#125;</span><br><span class="line">set3 = set1-set2</span><br><span class="line">=&gt;&#123;1,2&#125;</span><br><span class="line">4）对称差运算（^）或者symmetric_difference（）</span><br><span class="line">两个集合分别进行差集运算，结果进行并集运算得到的新集合就是对称差。</span><br><span class="line">set1 = &#123;1,2,3&#125;</span><br><span class="line">set2 = &#123;3,4,5&#125;</span><br><span class="line">set3 = set1^set2</span><br><span class="line">=&gt;&#123;1, 2, 4, 5&#125;</span><br><span class="line">5）子集与超集（父集）</span><br><span class="line">issubset()判断子集,issuperset()判断父集</span><br><span class="line">例如：</span><br><span class="line">set1 = &#123;1,2,3,4,5,6&#125;</span><br><span class="line">set2 = &#123;3,4,5&#125;</span><br><span class="line"><span class="built_in">print</span>(set1.issubset(set2))</span><br><span class="line">=&gt;False</span><br><span class="line">set1 = &#123;1,2,3,4,5,6&#125;</span><br><span class="line">set2 = &#123;3,4,5&#125;</span><br><span class="line"><span class="built_in">print</span>(set1.issuperset(set2))</span><br><span class="line">=&gt;True</span><br><span class="line"></span><br><span class="line">集合常用函数</span><br><span class="line">1）update（）</span><br><span class="line">函数格式：set1.update（set2）</span><br><span class="line">返回值：无</span><br><span class="line">我们将set2中的元素添加到set1中，如果有相同的元素，只保留一个。同时，该操作会修改set1中的集合。</span><br><span class="line">2）intersection_update（）</span><br><span class="line">函数格式：set1.intersection_update（set2）</span><br><span class="line">返回值：无</span><br><span class="line">结果：我们使用set2中的元素，添加到set1中，其中，保留两个集合中相同的元素。其中，set1的元素被舍弃。</span><br><span class="line">set1 = &#123;1,2,3&#125;</span><br><span class="line">set2 = &#123;3,4,5&#125;</span><br><span class="line">set1.intersection_update(set2)</span><br><span class="line">=&gt;&#123;3&#125;</span><br><span class="line">3）symmetric_difference_update（）</span><br><span class="line">函数格式：set1.symmetric_difference_update（set2）</span><br><span class="line">返回值：无</span><br><span class="line">结果：将set1和set2的对称差运算结果放入set1。</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/18/第十天学习/">展开全文 >></a>
         </p>
       
 

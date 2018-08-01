@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | mypythonbook</title>
+  <title>Python中的包与模块 | mypythonbook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Python�����桢Web����">
-<meta property="og:type" content="website">
-<meta property="og:title" content="mypythonbook">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+  <meta name="description" content="包与模块模块123456789101112131415161718192021221）基本概念：在Python中进行Python定义和声明的文件，以.py结尾。使用import或from        import导入的文件，我们称之为模块。2）模块的优势1.使用模块可以将常用的功能和变量，统一分类存储在不同的文件中，在使用时进行导入。提高了代码的可维护性。2. 使用模块因为将常用功能进行了统一调">
+<meta name="keywords" content="Python�����桢Web����">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python中的包与模块">
+<meta property="og:url" content="http://yoursite.com/2018/08/01/类包/index.html">
 <meta property="og:site_name" content="mypythonbook">
+<meta property="og:description" content="包与模块模块123456789101112131415161718192021221）基本概念：在Python中进行Python定义和声明的文件，以.py结尾。使用import或from        import导入的文件，我们称之为模块。2）模块的优势1.使用模块可以将常用的功能和变量，统一分类存储在不同的文件中，在使用时进行导入。提高了代码的可维护性。2. 使用模块因为将常用功能进行了统一调">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-01T11:48:36.390Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mypythonbook">
+<meta name="twitter:title" content="Python中的包与模块">
+<meta name="twitter:description" content="包与模块模块123456789101112131415161718192021221）基本概念：在Python中进行Python定义和声明的文件，以.py结尾。使用import或from        import导入的文件，我们称之为模块。2）模块的优势1.使用模块可以将常用的功能和变量，统一分类存储在不同的文件中，在使用时进行导入。提高了代码的可维护性。2. 使用模块因为将常用功能进行了统一调">
   
     <link rel="alternative" href="/atom.xml" title="mypythonbook" type="application/atom+xml">
   
@@ -153,106 +157,156 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-类包" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python中的包与模块
+    </h1>
+  
+
+        
+        <a href="/2018/08/01/类包/" class="archive-article-date">
+  	<time datetime="2018-08-01T11:41:36.191Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="包与模块"><a href="#包与模块" class="headerlink" title="包与模块"></a>包与模块</h2><h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1）基本概念：在Python中进行Python定义和声明的文件，以.py结尾。使用import或from        import导入的文件，我们称之为模块。</span><br><span class="line">2）模块的优势</span><br><span class="line">1.使用模块可以将常用的功能和变量，统一分类存储在不同的文件中，在使用时进行导入。提高了代码的可维护性。</span><br><span class="line">2. 使用模块因为将常用功能进行了统一调用，提供了代码的复用性。</span><br><span class="line">3. 解决了在同一个文件中，方法和变量重名的问题。</span><br><span class="line">3）导入时的问题</span><br><span class="line">如果导入了与文件同名的函数时，需要使用模块名调用函数，与文件中的函数进行分区，例如：</span><br><span class="line">from my import sum1</span><br><span class="line"></span><br><span class="line">def sum1(b,c) :</span><br><span class="line">    d = b-c</span><br><span class="line">    <span class="built_in">return</span> d</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sum1(6,7))</span><br><span class="line"><span class="built_in">print</span>(my.sum1(5,6))</span><br><span class="line">4）模块可以在Python文件中，实现多次import导入，但是只有一次导入时才真正将模块中的内容运行、方法载入，其他在进行导入时，Python解析器会先检测是否已经载入该模块，如果载入就不在执行相关操作。</span><br><span class="line">总结：</span><br><span class="line">模块载入一共分三个步骤：</span><br><span class="line">1、为模块的导入，创建命名空间。被载入的文件按照全局作用域来使用。</span><br><span class="line">2、模块载入后，将在上一步操作中创建命名空间中，执行模块中的代码。</span><br><span class="line">3、创建一个模块的名字来引用模块所在的命名空间。my.sum1()</span><br><span class="line">5）当使用from    import引入多个模块时，同时多个模块存在同名函数，那么在程序中调用该函数时，以程序导入的最后一个模块的函数为准。</span><br></pre></td></tr></table></figure>
+<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1）概念：包在Python中定义为可以包含多个模块文件的目录，其中必须要包含一个名为“__init__.py”的文件，用来初始化包。</span><br><span class="line">2）包在调用的时候，首先会初始化__innit__.py文件，主要功能为包中模块运行时提供所需要的相关数据，比如：数据库用户名称、密码、地址等内容。</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/第一天学习/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:46:00.577Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/第一天学习/">Python基础语法第一天学习</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/01/类包/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/11/IF判断语句联系/" class="archive-article-date">
-  	<time datetime="2018-07-11T13:57:11.733Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/31/对XML文件操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python对XML文件的解析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/11/IF判断语句联系/">IF语句的小应用</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/09/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-09T11:17:44.714Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/09/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 
 
@@ -279,8 +333,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

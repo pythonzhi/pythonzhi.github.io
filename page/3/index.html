@@ -155,6 +155,73 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-第一天学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/12/第一天学习/">Python基础语法第一天学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/12/第一天学习/" class="archive-article-date">
+  	<time datetime="2018-07-12T02:46:00.577Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关键内容"><a href="#关键内容" class="headerlink" title="关键内容"></a>关键内容</h2><p>1、编码  2、print（）函数  3、print（）函数的基本应用  4、格式化输出</p>
+<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在开发过程，对应不同的语言使用不同的字符编码。</span><br><span class="line">英文    ISO-8859-1</span><br><span class="line">中文    gbk或gb2312</span><br><span class="line">目前Python为了统一编码格式，在3.0以上的版本使用了utf-8编码</span><br></pre></td></tr></table></figure>
+<h3 id="print-函数"><a href="#print-函数" class="headerlink" title="print()函数"></a>print()函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">语法格式：<span class="built_in">print</span>(value,...,sep=<span class="string">' '</span>,end=<span class="string">'\n'</span>)</span><br><span class="line">其中，value代表我们要输出的内容，可以是字符串，可以是数值等内容</span><br><span class="line">sep代表输出多个值之间的间隔符，默认使用空格隔开。我们可以重新定义间隔符，比如采用：<span class="comment">#、，等</span></span><br><span class="line">end代表输出语句的结束标识，默认使用了换行，我们可以重新定义其他内容，其输出的内容将不再进行换行操作。</span><br></pre></td></tr></table></figure>
+<h3 id="print-函数的基本使用"><a href="#print-函数的基本使用" class="headerlink" title="print()函数的基本使用"></a>print()函数的基本使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>()常用输出方式：</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'hello '</span>)、<span class="built_in">print</span>(123456)等</span><br><span class="line">参数格式输出</span><br><span class="line">%s：代表了字符串内容，其中</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'welcome %s'</span> %Beijing)=&gt;welcome Beijing</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'welcome %10.3s'</span>%Beijing)=&gt;welcome       Bei,输出结果为10个字符其中包含字符串Beijing中前三个，其余用空格填充</span><br><span class="line">%d：代表了整数内容，其中</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'price %d'</span>%10)=&gt;price 10</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'price %d'</span>%10.5) =&gt; price 10</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'price %3d'</span>%10000)=&gt; price 10000</span><br><span class="line">注意这里面的3d表示输出一个宽度为3个单元的数值，如果数值长度小于三，那么数值靠右对齐。</span><br><span class="line">-3d表示，数值反向对齐（靠左对齐）</span><br><span class="line">%f：代表了浮点数内容(注意，在Python中浮点数是一个近似值，所以结果也是近似)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'price %f'</span>%10.2)=&gt;10.200000</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'price %.1f'</span>%10.2) =&gt; 10.2</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'prince %.1f'</span>%10.58) = &gt;10.6 当取一位小数位的时候，将小数位第二位进行舍入操作，但是Python的中间值不是5，导致当小数位第二位是5时，直接被舍去</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'%5.1f'</span>%10.3) =&gt; 10.3</span><br><span class="line">输出一个宽度为5的单位，其中整数3位，小数部分1位，小数点占一位</span><br></pre></td></tr></table></figure>
+<h3 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在Python3.0之后，推荐使用&#123;0&#125;来代替前期的%d,%s,%f等一系列的格式化参数，采用了字符串的format函数进行处理。写法如下：</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'welcome &#123;0&#125;同学，加入&#123;1&#125;班级'</span>.format(<span class="string">'tom'</span>,<span class="string">'Python3班'</span>))</span><br><span class="line">其中&#123;0&#125;，&#123;1&#125;分别映射format()中的<span class="string">'tom'</span>和<span class="string">'Python3班'</span>，如果前面占位符中的索引值变化，那么他们映射的值也随之变化</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/12/第一天学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-IF判断语句联系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
