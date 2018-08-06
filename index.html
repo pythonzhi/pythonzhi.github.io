@@ -155,6 +155,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面向对象一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/面向对象一/">面向对象第一天学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/06/面向对象一/" class="archive-article-date">
+  	<time datetime="2018-08-06T12:50:14.980Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="面向对象的概念"><a href="#面向对象的概念" class="headerlink" title="面向对象的概念"></a>面向对象的概念</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">1. 类：指具有相同属性或行为的一组事物。</span><br><span class="line">   对象：是指类的具体化。</span><br><span class="line">类与对象的关系 ：</span><br><span class="line">类是一组对象的抽象表示，而对象是类的具体化表现。</span><br><span class="line">2. 类的语法结构</span><br><span class="line">class 类名 ：</span><br><span class="line">    变量声明语句    <span class="comment">#类的属性</span></span><br><span class="line">    执行语句</span><br><span class="line">    def func(self)</span><br><span class="line">其中，类名首字母要求大写，遵守Python命名规则，不能以数字开头，通常我们都是字母开头。</span><br><span class="line">注意：</span><br><span class="line">1）如果类中声明了函数，其函数的参数，必须有一个默认的参数为self,self代表了该类的实例化对象。</span><br><span class="line">2）如果在类中声明了变量，且该变量位于函数体之外，这个变量我们称之为类变量，类变量是公共的。类变量的调用可以直接使用类名进行调用。比如：</span><br><span class="line">class Myclass : <span class="comment"># 定义一个类</span></span><br><span class="line">    color = <span class="string">'灰色'</span></span><br><span class="line">    </span><br><span class="line">    def wangwang(self) :</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'wangwangwang'</span>)</span><br><span class="line"></span><br><span class="line">    def eat(self) :</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'一顿5斤肉'</span>)</span><br><span class="line"></span><br><span class="line">    def run(self) :</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'一口气跑1里'</span>)</span><br><span class="line"></span><br><span class="line">Myclass.color</span><br><span class="line"></span><br><span class="line">类变量，作为公共的变量，不管类实例化多少个对象，都只实例一份变量。而且类变量会在对象实例化之前读取内容。</span><br><span class="line"></span><br><span class="line">3）在类实例化对象时，会将其定义的属性和行为，生成一份副本给具体的是实例化对象。对象与对象之间，他们的属性和行为是不相互干扰的。</span><br><span class="line">class Myclass : <span class="comment"># 定义一个类</span></span><br><span class="line">    color = <span class="string">'灰色'</span></span><br><span class="line">    </span><br><span class="line">    def __init__(self,color):</span><br><span class="line">        self.color = color</span><br><span class="line"></span><br><span class="line">    def getColor(self) :</span><br><span class="line">        <span class="built_in">print</span>(self.color)</span><br><span class="line"></span><br><span class="line">p = Myclass(<span class="string">'绿'</span>)</span><br><span class="line">m = Myclass(<span class="string">'蓝'</span>)</span><br><span class="line">p.getColor()</span><br><span class="line">m.getColor()</span><br><span class="line"></span><br><span class="line">我们在实例化Dog类时，生成两个对象hushk、samoye，这两对象在实例化的过程中会生成两套成员变量和函数。</span><br><span class="line">4）使用构造函数，来初始化成员变量</span><br><span class="line">class Person:</span><br><span class="line">    def __init__(self):     <span class="comment">#  构造函数，在实例化对象时被默认调用，用来给对象的成员变量赋值</span></span><br><span class="line">        self.name = <span class="string">'tom'</span></span><br><span class="line">        self.age = 21</span><br><span class="line">        self.tel = <span class="string">'13534124144'</span></span><br><span class="line">        self.address = <span class="string">'郑州'</span></span><br><span class="line">        self.sex = <span class="string">'男'</span></span><br><span class="line">    def setName(self,name) :</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    def getName(self) :</span><br><span class="line">        <span class="built_in">return</span> self.name</span><br><span class="line">a = Person()</span><br><span class="line">a.setName(<span class="string">'lisa'</span>)</span><br><span class="line">a.getName()</span><br><span class="line">使用__init__（）函数，用来初始化成员变量。对象在实例化时，会默认的调用__init__()函数，同时将成员变量进行初始化。同时，在构造函数中，使用self.变量名进行初始化的成员变量，都是共有的。即在类外可以通过实例化的对象调用。</span><br></pre></td></tr></table></figure>
+<h3 id="类变量与成员变量的区别"><a href="#类变量与成员变量的区别" class="headerlink" title="类变量与成员变量的区别"></a>类变量与成员变量的区别</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 类变量是声明在类中，位于函数之外声明的变量。这些变量是公共的，即在类外使用类名.类变量的方式进行调用。我们一旦修改类变量的值，所有调用类变量的内容均发生改变。</span><br><span class="line">2. 成员变量，是声明在类中的构造函数中，通过self.变量来进行声明赋值的。这些成员变量也是公有的，即在类外通过对象名.成员变量的方式进行调用。所有的对象都有自己的成员变量，也就意味着每个对象的成员变量都是独立的，不会相互干扰。</span><br><span class="line">3. 类变量是该类所有实例化对象所公有的，它会早在对象实例化之前被载入内存中。</span><br><span class="line">    成员变量都是跟随对象实例化的过程中，被声明出来的。它是伴随着对象的产生而产生，消亡而消亡。</span><br><span class="line">4. 成员变量和方法，默认情况下都是公有的。也就是说在类外，可以直接使用对象进行调用。我们可以通过为成员变量设置双下滑线，使其标识为私有的成员变量，例如：self.__name = <span class="string">'tom'</span>。私有的成员变量只能在类内进行直接调用，类外必须通过函数进行间接调用。</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/06/面向对象一/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-文件内容补充" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -708,72 +772,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/25/函数变量/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-函数学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/23/函数学习/">Python基础_函数</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/23/函数学习/" class="archive-article-date">
-  	<time datetime="2018-07-23T13:24:54.982Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="自定义函数的内容"><a href="#自定义函数的内容" class="headerlink" title="自定义函数的内容"></a>自定义函数的内容</h2><h3 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">函数的格式：</span><br><span class="line">def 函数名（[参数列表]）:</span><br><span class="line">        执行代码</span><br><span class="line">其中，函数名的命名方式与变量名的要求相同，即只能是数字、字符、下滑线三者组成，同时不能由数字开头。</span><br><span class="line">另外，函数的参数根据需要，可以有参数也可以无参数。同时，参数的个数可以是1~N个。</span><br><span class="line">最后调用函数时，一定要保证该函数已经被定义。调用的函数名要与定义的函数名一致。</span><br></pre></td></tr></table></figure>
-<h3 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">函数在外部调用时，直接写函数名以及函数参数即可，不需要将函数体写出来。同时，函数是否有返回值，由其函数体最后一句代码是否为<span class="built_in">return</span> 来决定的。如果有<span class="built_in">return</span>语句，那么就意味着该函数有返回值，如果没有返回值，就意味着返回值为None。</span><br><span class="line">注意：函数使用<span class="built_in">return</span>作为返回值语句，该命令通常放在函数的最后一句，保证函数相关的代码都执行完毕后才返回，如果后面还有其他程序，则不会执行。</span><br></pre></td></tr></table></figure>
-<h3 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">概念：函数在定义时，声明的参数，我们称为形参。形参的作用，主要是用来表明参数顺序、类型和个数。并不代表具体内容。</span><br><span class="line">我们在调用函数的时候，根据形参的规（顺序、类型、个数），传递进来实际的内容。我们称为实参。</span><br><span class="line">1）必须的函数</span><br><span class="line">我们在函数定义时，显示声明在函数的参数列表中的参数，这些参数一旦被声明，函数在调用时，必须按照所声明的顺序、个数和数据类型，来传递实际的参数内容。</span><br><span class="line">2）关键字参数</span><br><span class="line">我们在定义函数时，声明了函数的参数后，在调用函数时，我们不仅传递实际的参数内容，同时还将参数名字与之对应，这样保证传递进来的参数如果没有按照函数定义时规定的顺序也能够正确传递进来。</span><br><span class="line">3）默认参数</span><br><span class="line">我们在定义函数时，声明函数的参数，同时可以给这些参数进行赋值，在调用该函数时，如果没有给对应参数传递实参，那么Python会默认使用定义函数时所声明的默认参数值。</span><br><span class="line">4）不定长参数（可变参数）</span><br><span class="line">我们在定义函数时，因为参数过多或不确定参数列表个数，我们还可以采用可变参数来实现。可变参数即从0到N个参数，采用*参数名。</span><br><span class="line">注意：此时可变参数的类型为tuple（元组）类型。 </span><br><span class="line">关键字可变参数：我们在定义函数时，通过使用**参数名，来表示0~N个参数，在外部调用函数时，将这些可变参数组装成一个字典。</span><br><span class="line">例如：</span><br><span class="line">def display(name , sex , **bianchang) :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'&#123;0&#125;的性别为&#123;1&#125;,其他信息&#123;2&#125;'</span>.format(name,sex,bianchang))</span><br><span class="line">display(<span class="string">'zhang'</span>,<span class="string">'男'</span>,city = <span class="string">'郑州'</span>,tel = <span class="string">'134568721'</span>)</span><br><span class="line">=&gt;zhang的性别为男,其他信息&#123;<span class="string">'city'</span>: <span class="string">'郑州'</span>, <span class="string">'tel'</span>: <span class="string">'134568721'</span>&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="特殊用法："><a href="#特殊用法：" class="headerlink" title="特殊用法：*"></a>特殊用法：*</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在函数定义中，如果单独使用一个*号，意味着该*号后面的参数，为关键字参数声明时必须使用的名字，在调用该函数时，关键字参数的名字要与函数定义中*号后面的参数名称一致。例如：</span><br><span class="line">def display(username , userpass ,* ,name , sex) :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'用户名：&#123;0&#125;,密码：&#123;1&#125;,其他信息&#123;2&#125;&#123;3&#125;'</span>.format(username,userpass,name,sex))</span><br><span class="line">display(<span class="string">'zhang'</span>,<span class="string">'123456'</span>,sex = <span class="string">'男'</span>,name = <span class="string">'王先生'</span>)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/23/函数学习/">展开全文 >></a>
         </p>
       
 
