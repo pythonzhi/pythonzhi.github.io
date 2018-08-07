@@ -155,6 +155,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面向对象二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/07/面向对象二/">面向对象第二天学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/07/面向对象二/" class="archive-article-date">
+  	<time datetime="2018-08-07T13:23:54.452Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="重点是继承"><a href="#重点是继承" class="headerlink" title="重点是继承"></a>重点是继承</h2><h3 id="对象创建的流程和析构函数"><a href="#对象创建的流程和析构函数" class="headerlink" title="对象创建的流程和析构函数"></a>对象创建的流程和析构函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Python中对象创建的流程</span><br><span class="line">1. Python创建一个对象，首先要调用__new__方法，用来创建并返回一个对象。通常，Python中不需要我们直接显示调用，它会默认调用objeck.__new__()方法。</span><br><span class="line">2. 然后调用__init__方法，对该对象进行初始化。</span><br><span class="line"></span><br><span class="line">析构函数：</span><br><span class="line">1、析构函数与构造函数一样，都是Python中特殊的函数。</span><br><span class="line">2、析构函数如果用户没有定义的话，Python会提供一个默认的析构函数。</span><br><span class="line">3、析构函数__del__(self)，作用用来释放掉对象所占用的内存空间，在Python回收对象空间之前自动被执行。</span><br><span class="line">4、通常在析构函数中，主要是将对象中占用大量资源的变量进行手动的释放，便于后续Python解释器去回收这些内存空间。</span><br></pre></td></tr></table></figure>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">1. Python中能够实现单继承与多继承。</span><br><span class="line">单继承：子类只有一个直接父类。</span><br><span class="line">多继承：子类有两个及两个以上的直接父类。</span><br><span class="line">2. 子类继承父类，子类可以继承父类的相关特征。子类继承了父类的方法，如果在多继承情况下，父类出现同名函数，那么子类继承函数时，根据继承的顺序进行调用。</span><br><span class="line">3. super()函数，它只带了当前类的父类。我们可以在子类中调用super()函数，用来初始化父类。但是我们使用super（）来调用父类的构造函数时，只能对多继承中的第一个父类生效。</span><br><span class="line">4. 抽象与继承的区别与关系</span><br><span class="line">抽象：指对同一类别事物的相似部分进行抽取。抽象我们认为是对具体化对象的相关行为和属性的泛化过程。</span><br><span class="line">继承：Python中我们通常认为类就是一个抽象的内容。类本身并不能直接执行，需要通过继承，进行对象的实例化，进而获得具体的对象本身，才能执行相关的功能。</span><br><span class="line">也就是说继承其实是抽象的具体化过程。</span><br><span class="line"></span><br><span class="line">5. 多继承中，当一个子类继承多个父类时，我们需要如下声明：</span><br><span class="line">class SubClass(A,B):</span><br><span class="line">其中，A、B是SubClass的父类。那么，如果我们分为两种情况：</span><br><span class="line">第一、子类中没有显式的定义__init__()，那么在实例化子类时调用其父类的构造函数。如果有多个类，都定义了__init__（）函数，那么它会调用第一个具有__init()函数的父类。</span><br><span class="line">第二，子类中显式的定义了__init__（）函数，那么实例化子类时不再调用父类的构造函数。此时，如果我们要调用父类的构造函数，有两种方法。</span><br><span class="line">1）在子类的构造函数中，显式的调用对用父类的构造函数，例如：</span><br><span class="line">A.__init__(self)</span><br><span class="line">2）采用super()函数，super().__init()或者super(子类.self).__init__()</span><br><span class="line">但是如果遇到其多个父类，他们的构造函数同名时，我们根据他们在MRO中的顺序，分别调用他们，例如：</span><br><span class="line">class B(A, C):</span><br><span class="line"></span><br><span class="line">    def __init__(self):  </span><br><span class="line">        super().__init__()  	<span class="comment">#此处调用了父类B</span></span><br><span class="line">        super(A, self).__init__()   	<span class="comment">#此处调用了父类C</span></span><br><span class="line">        self.nameb = <span class="string">'B'</span></span><br><span class="line">注意，这里不要看到super就认为是父类，但是在多继承时，实际上super指的是MRO中的下一个类。</span><br></pre></td></tr></table></figure>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在Python中，我们针对其内部细节进行封装。通常我们会将属性定义为私有类型，意味着在类外无法直接访问。可以通过相关的方法对其进行调用。</span><br><span class="line">私有的成员变量和方法，都需要在类内进行定义。所有在类外实现的定义都是公有的。</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/07/面向对象二/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-面向对象一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -708,70 +773,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/25/函数闭包/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-函数变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/25/函数变量/">函数学习（续）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/25/函数变量/" class="archive-article-date">
-  	<time datetime="2018-07-25T12:31:55.171Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="函数变量与函数嵌套"><a href="#函数变量与函数嵌套" class="headerlink" title="函数变量与函数嵌套"></a>函数变量与函数嵌套</h2><h3 id="局部变量与全局变量"><a href="#局部变量与全局变量" class="headerlink" title="局部变量与全局变量"></a>局部变量与全局变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1）Python中，函数在调用的时候Python才会给函数一个内存地址，用来执行函数内部的相关代码。</span><br><span class="line">2）PYthon程序在运行时，首先会将程序最外部的内容载入内存，并给其分配相关的内存空间。我们称这种变量为全局变量。</span><br><span class="line">3）函数中声明的变量，只有在函数被执行时，才会被分配内存空间进行执行，我们称这种变量为局部变量。</span><br><span class="line">4）Python程序执行的过程，执行函数时，首先会检查其函数内部的局部变量是否存在，如果存在就调用它，如果不存在，就从外部全局变量中进行调用，如果仍然没有发现相关内容，则报错。</span><br><span class="line">5）locals（）与globals（）</span><br><span class="line">在Python中，通过globals（）观察全局作用域中内容，包括：内置的，自定义函数，全局变量；</span><br><span class="line">通过locals（）能够观察局部域中内容，包括：局部变量，嵌套函数。</span><br><span class="line">6）当函数中出现嵌套情况时，最内层函数执行调用变量，会采用“就近原则”即先查找自身范围内的变量，如果没有找到，则向上查找，直到程序最外部结束。</span><br><span class="line">7）global与nonlocal</span><br><span class="line">global用来修饰局部变量时，表示该变量将作为全局变量来使用。即不仅在函数中可以被调用，同时在文件的最外部也可以被调用。</span><br><span class="line">nonlocal用来修饰嵌套函数内部的变量，对父级作用域（外层函数）中的变量进行引用和修改，那么从该层以下都将调用该变量的值。注意：该关键字只能影响其直接父级。</span><br><span class="line">使用global关键字修饰的变量之前，其变量可以不存在。</span><br><span class="line">nonlocal关键字修饰的变量，在嵌套作用域中必须已经存在，但不能是全局变量。</span><br><span class="line"></span><br><span class="line">总结：在函数中定义的变量，我们称为局部变量。包括在函数内部定义的变量、作为参数传递进来的变量。局部变量起作用的范围，我们称为，局部作用域。因为Python在调用局部变量时，需要给它分配内存地址，我们称为这个地址为局部命名空间。</span><br><span class="line">在文件最外层定义的变量，我们称为全局变量，可以在文件中的任意位置进行调用。全局变量起作用的范围，我们称为，全局作用域。Python在载入文件时，就需要给全局变量分配地址，这个地址我们称为全局命名空间。</span><br></pre></td></tr></table></figure>
-<h3 id="函数嵌套"><a href="#函数嵌套" class="headerlink" title="函数嵌套"></a>函数嵌套</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">根据Python中，对函数的载入和调用的特点，我们可以清楚地看到，当Python运行相关文件时，如果遇到函数时，会先将其名字载入到内存中（即为函数名指定一个内存地址）。因此，我们在使用函数名时，可以有以下三种情况：</span><br><span class="line">1）将函数名作为值赋值给变量</span><br><span class="line">例如：</span><br><span class="line">def  f1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">a = f1</span><br><span class="line">这时，变量a中的值就是f1()函数名的内存地址。</span><br><span class="line">2）将函数名作为容器的元素</span><br><span class="line">例如：</span><br><span class="line">def f1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">ls = [1, 2 ,f1]</span><br><span class="line">此时存入到列表ls中的f1，它的值仍然是该函数名对应的内存地址。</span><br><span class="line">3）将函数名作为另外一个函数的参数进行传递</span><br><span class="line">def f1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">def f2(x):</span><br><span class="line">    x()</span><br><span class="line">f2(f1)</span><br><span class="line">那么其执行结果为ok，这种方式类似于函数的普通嵌套。</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/25/函数变量/">展开全文 >></a>
         </p>
       
 
