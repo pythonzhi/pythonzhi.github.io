@@ -155,6 +155,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-HTML基础学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/15/HTML基础学习/">HTML初步学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/15/HTML基础学习/" class="archive-article-date">
+  	<time datetime="2018-08-15T12:47:11.452Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTML页面结构"><a href="#HTML页面结构" class="headerlink" title="HTML页面结构"></a>HTML页面结构</h2><h3 id="HTML基本结构"><a href="#HTML基本结构" class="headerlink" title="HTML基本结构"></a>HTML基本结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTML有三个标签来构成基本结构：</span><br><span class="line">&lt;html&gt;：作为HTML文件的跟标签，所有的页面中的标签和内容都要在HTML标签的范围内。</span><br><span class="line">&lt;head&gt;：作为HTML文件的头部标签，相关页面的信息、编码、引导外部的CSS文件和JS文件，都需要放置在head标签中。</span><br><span class="line">&lt;body&gt;：body标签中的内容，就是我们爬虫需要解析的主体。所有需要在页面上展现的内容，都会放置在该标签中。</span><br></pre></td></tr></table></figure>
+<h3 id="常见的HTML标签"><a href="#常见的HTML标签" class="headerlink" title="常见的HTML标签"></a>常见的HTML标签</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">1）h1——h6：标题标签，用来显示标题，h1最大，h6最小。</span><br><span class="line">2）&lt;p&gt;：段落标签。用来对文本内容进行分段。</span><br><span class="line">3）&lt;a&gt;：链接标签。用来跳转到指定的网址。</span><br><span class="line">&lt;a target=<span class="string">"_blank"</span> href=<span class="string">"https://www.baidu.com"</span>&gt;百度&lt;/a&gt;</span><br><span class="line">其中参数target可以为：_self：在自身的窗口重新打开指定的网址。_blank：在新窗口中打开指定的网址。</span><br><span class="line">4）&lt;img&gt;：图片标签。用来载入指定位置的图片，通常可以接收的图片类型：JPG、png、gif、bmp</span><br><span class="line">&lt;img src=<span class="string">""</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">其中：src：指定图片的具体位置           alt：其中的内容，作为图片未加载出来时显示的内容。</span><br><span class="line">5）表格标签：table、tr、th、td</span><br><span class="line">&lt;table&gt;：表格标签，所有表格中的行和单元格内容都必须放置在内部。</span><br><span class="line">&lt;tr&gt;：表格行，代表表格一行</span><br><span class="line">&lt;th&gt;：表格头，代表表格的标题行</span><br><span class="line">&lt;td&gt;：表格单元格，代表表格中的每个单元内容。</span><br><span class="line">6）列表</span><br><span class="line">有序列表：</span><br><span class="line">&lt;ol&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br><span class="line">无序列表：</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">自定义列表：</span><br><span class="line">&lt;dl&gt;</span><br><span class="line">    &lt;dt&gt;</span><br><span class="line">        &lt;dd&gt;&lt;/dd&gt;</span><br><span class="line">    &lt;/dt&gt;</span><br><span class="line">&lt;/dl&gt;</span><br><span class="line">7）div与span</span><br><span class="line">div：块级元素，用来实现页面布局。自身没有任何效果</span><br><span class="line">span：内联元素，用做文本容器。自身没有任何效果</span><br><span class="line">8）表单</span><br><span class="line">&lt;form name= <span class="string">"表单名"</span> action=<span class="string">"url"</span> method=<span class="string">"get/post"</span>&gt;</span><br><span class="line">默认情况，如果没有声明method属性，缺省值为get</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">""</span>&gt;</span><br><span class="line">输入标签，<span class="built_in">type</span>属性：</span><br><span class="line">text：文本框</span><br><span class="line">password：密码框</span><br><span class="line">checkbox：复选框</span><br><span class="line">radio：单选按钮</span><br><span class="line">submit：提交按钮</span><br><span class="line">reset：重置按钮</span><br><span class="line">button：按钮</span><br><span class="line">file：文件上传按钮</span><br><span class="line">&lt;textarer  cols=<span class="string">"列数"</span>  rows=<span class="string">"行数"</span>&gt;：文件区标签</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/15/HTML基础学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-网络知识初识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -709,72 +773,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/27/文档输入输入一/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-高阶函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/26/高阶函数/">高阶函数学习</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/26/高阶函数/" class="archive-article-date">
-  	<time datetime="2018-07-26T11:19:45.032Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">使用lambda关键字进行修饰，没有显式声明函数的名字。格式如下：</span><br><span class="line">lambda 参数：表达式</span><br><span class="line">注意：在使用匿名函数时，因为其自身的性质，其函数体的内容不能太过复杂。</span><br><span class="line">例如：</span><br><span class="line">def show(x) :</span><br><span class="line">    <span class="built_in">return</span> x*2      <span class="comment">#一般函数写法</span></span><br><span class="line"></span><br><span class="line">a = lambda x : x*2  <span class="comment">#匿名函数写法</span></span><br></pre></td></tr></table></figure>
-<h3 id="map函数（映射函数）"><a href="#map函数（映射函数）" class="headerlink" title="map函数（映射函数）"></a>map函数（映射函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">函数格式：map（func，iterable）</span><br><span class="line">返回值：返回一个map对象，这个对象是一个迭代器。</span><br><span class="line">说明：map函数主要作用是，将指定函数与序列中的元素进行映射，并完成函数中功能的批量操作，返回值为一个迭代器。我们可以使用<span class="keyword">for</span>循环或next（）函数进行遍历，通常情况下，如果映射的函数较为简单，我们就不单独声明函数，而是采用匿名函数来实现，这样也能提高运行效率。</span><br><span class="line">例如：</span><br><span class="line">def f(x):</span><br><span class="line">    <span class="built_in">return</span> x * x</span><br><span class="line">result = map(f,[1,2,3])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> result :</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">map函数还可以和匿名函数一起使用，例如：</span><br><span class="line">a = [<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line">result = map(lambda i:i.upper(),[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> result :</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
-<h3 id="reduce函数（归纳函数）"><a href="#reduce函数（归纳函数）" class="headerlink" title="reduce函数（归纳函数）"></a>reduce函数（归纳函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">函数格式：reduce（func，iterator）</span><br><span class="line">返回值：返回函数计算结构，具体类型根据函数的返回值来定。</span><br><span class="line">说明：reduce函数中的func，一定要设为2个参数，用来接收迭代器返回的值。操作顺序为：首先接收第一和第二个值，进行运算；运算结果再与第三个值进行运算，以此类推，直到迭代器迭代完所有数据。</span><br><span class="line">例如：</span><br><span class="line">def f(x,y) :</span><br><span class="line">    <span class="built_in">return</span> x+y</span><br><span class="line">result = reduce(f,range(1,4))</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"></span><br><span class="line">reduce函数也可与匿名函数一起使用，例如：</span><br><span class="line">iter_list1 = iter([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line">result = reduce(lambda x,y:x+y,iter_list1)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
-<h3 id="filter函数（过滤函数）"><a href="#filter函数（过滤函数）" class="headerlink" title="filter函数（过滤函数）"></a>filter函数（过滤函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">函数格式：filter（func，iterable）</span><br><span class="line">返回值：返回一个迭代器</span><br><span class="line">说明：过滤函数与映射函数类似，都需要将函数作用于序列中的每个元素，根据函数判断True or False返回相关元素。</span><br><span class="line">例如：</span><br><span class="line">def is_even(x):</span><br><span class="line">    <span class="built_in">return</span> x % 2 != 0</span><br><span class="line">l = filter(is_even,[0,1,2,3,4,5])</span><br><span class="line"><span class="built_in">print</span> ([i <span class="keyword">for</span> i <span class="keyword">in</span> l])</span><br><span class="line"></span><br><span class="line">它也可以与匿名函数一起使用，例如：</span><br><span class="line">str_tuple = (<span class="string">"hipython"</span>,<span class="string">"pyth"</span>,<span class="string">"lovepython"</span>,<span class="string">"PYTHON"</span>,<span class="string">"XMU"</span>)</span><br><span class="line">result = filter(lambda str_tuple:str_tuple.find(<span class="string">'python'</span>) != -1, str_tuple)</span><br><span class="line">n = 0</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> result:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    n += 1</span><br><span class="line"><span class="built_in">print</span>(n)</span><br><span class="line"></span><br><span class="line">补充知识：</span><br><span class="line">函数的递归调用</span><br><span class="line">递归概念：就是使用自身函数对自身进行调用，每调用一次将当前次的运行结果保存到函数的堆栈中，以副本形式保存，一直到最后完成全部调用。然后逐一向外将当前函数的结果返回并退出到其调用的位置。</span><br><span class="line">在Python中，通常推荐使用迭代，递归本身对内存的小号和运行效率低下的问题，较少使用。</span><br><span class="line"></span><br><span class="line">一个递归求阶乘的简单例子：</span><br><span class="line">def func(n) :</span><br><span class="line">    <span class="keyword">if</span> n == 1 :</span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        <span class="built_in">return</span> n * func(n-1)</span><br><span class="line"><span class="built_in">print</span>(func(5))</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/26/高阶函数/">展开全文 >></a>
         </p>
       
 
