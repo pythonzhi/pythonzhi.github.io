@@ -155,6 +155,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-网络爬虫" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/27/网络爬虫/">网络爬虫学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/27/网络爬虫/" class="archive-article-date">
+  	<time datetime="2018-08-27T12:38:57.117Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="网络爬虫—urllib库"><a href="#网络爬虫—urllib库" class="headerlink" title="网络爬虫—urllib库"></a>网络爬虫—urllib库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">1、urllib库的基本使用</span><br><span class="line">import urllib.request</span><br><span class="line">函数格式：urllib.request.openurl(url, data , timeout)</span><br><span class="line">参数说明：</span><br><span class="line">url：指定的请求网址</span><br><span class="line">data：请求时，提交给服务器端的数据，如果在openurl中使用了data参数，提交方式为post，默认情况下为get</span><br><span class="line">timeout：指定连接url的超时时间，单位为秒。</span><br><span class="line">urllib.request.openurl（）函数返回一个HTTPResponse对象，我们可以使用response对象中的相关方法：</span><br><span class="line"><span class="built_in">read</span>（）读取响应体中的内容</span><br><span class="line">status/getcode（）：返回响应码</span><br><span class="line">reason：返回响应信息的内容</span><br><span class="line">info（）返回响应头信息</span><br><span class="line">geturl（）返回请求的url地址</span><br><span class="line"></span><br><span class="line">2、Request请求对象</span><br><span class="line">import urllib.request</span><br><span class="line">req = urllib.request.Request(url, data, headers, method)</span><br><span class="line">参数说明：</span><br><span class="line">url：指定的请求地址</span><br><span class="line">data：请求时提交给服务器端的数据</span><br><span class="line">headers：请求对象的头信息，用来将一个爬虫伪装成一个普通的浏览器请求，主要设置user-agent</span><br><span class="line">method：请求的方式，默认为get，可以设置为POST或GET</span><br><span class="line">3、urllib.error</span><br><span class="line">在urllib库中，有三个error对象</span><br><span class="line">HTTPError：HTTP访问异常</span><br><span class="line">URLError：URL地址异常</span><br><span class="line">ContentTooShortError：文件大小异常</span><br><span class="line">注意：HTTPError是URLError的子类。</span><br><span class="line">HTTPError，只有一个属性reason</span><br><span class="line">URLError，有三个属性code，reason，headers。</span><br><span class="line">4、urllib.robotparser</span><br><span class="line">作用：用来解析指定网站的robots.txt文件。用来分析哪些内容是允许抓取，哪些内容是不允许的。</span><br></pre></td></tr></table></figure>
+<h3 id="requests库"><a href="#requests库" class="headerlink" title="requests库"></a>requests库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">1、常用方法</span><br><span class="line">1）requests.get(url,[param],**kvw)</span><br><span class="line">参数说明：</span><br><span class="line">url：指定爬取的网络地址</span><br><span class="line">param：需要传递的参数，参数格式：字典或字节流</span><br><span class="line">属性：</span><br><span class="line">status_code：状态码</span><br><span class="line">headers：头信息</span><br><span class="line">text：抓取到的页面内容</span><br><span class="line">encoding：页面的编码格式（从headers获取到）</span><br><span class="line">apparent_encoding：页面的编码格式（从网页内容中获取到）</span><br><span class="line">content：页面内容的二进制形式</span><br><span class="line">注意:text属性返回的页面信息，是根据encoding来显示的。所以我们在使用requests抓取页面信息时，将encoding属性进行设置，通常设为utf-8</span><br><span class="line">get（）函数代表了发出一个request请求，而requests.get（）表示返回一个response对象。</span><br><span class="line"></span><br><span class="line">2）</span><br><span class="line">requests.request(<span class="string">'GET'</span>, url, **kvw)</span><br><span class="line">requests.request(<span class="string">'HEAD'</span>, url, **kvw)</span><br><span class="line">requests.request(<span class="string">'POST'</span>, url, **kvw)</span><br><span class="line">requests.request(<span class="string">'PUT'</span>, url, **kvw)</span><br><span class="line">requests.request(<span class="string">'PATCH'</span>, url, **kvw)</span><br><span class="line">requests.request(<span class="string">'DELETE'</span>, url, **kvw)</span><br><span class="line">**kvw：控制访问的参数，为可选项</span><br><span class="line">params：字典或字节流，作为参数添加到url中（get方法使用）</span><br><span class="line">data：字典、字节流或文件对象（post方法使用）</span><br><span class="line">json：JSON格式数据，作为request的内容</span><br><span class="line">headers：字典，HTTP头信息</span><br><span class="line">cookies：字典或cookie  jar，存在于request的cookie中</span><br><span class="line">auth：元组，支持HTTP认证</span><br><span class="line">files：字典类型，传输文件</span><br><span class="line">timeout：设定超时时间，秒为单位</span><br><span class="line">stream：True/False，默认为True。获取内容立即下载。</span><br><span class="line">cert：没本地SSL整数路径</span><br><span class="line">verfiy：True/False，默认为True。认证SSL开关</span><br><span class="line">allow_redirects：True/False，默认为True，重定向开发</span><br></pre></td></tr></table></figure>
+<h3 id="beautiful-soup库"><a href="#beautiful-soup库" class="headerlink" title="beautiful  soup库"></a>beautiful  soup库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">1、常用格式</span><br><span class="line">BeautifulSoup（content，‘html.parser’）</span><br><span class="line">参数说明：</span><br><span class="line">content：使用requests或其他方式，发出请求后获取到的服务器响应内容，通常应该为HTML格式。</span><br><span class="line">html.parser:HTML4格式解析器</span><br><span class="line">2、常用的属性</span><br><span class="line">标签自身属性：</span><br><span class="line">tag：标签名字，例如soup.tag可以将指定的标签以及内部的内容返回</span><br><span class="line">name：标签名，例如：soup.tag.name返回指定标签的名字</span><br><span class="line">attrs：标签属性，在HTML中一个标签可以有0到N个标签，因此标签属性为字典类型，例如：soup.tag.attrs[<span class="string">'class'</span>]</span><br><span class="line">string：标签内的文本内容，例如：soup.tag.string</span><br><span class="line"></span><br><span class="line">标签树的属性：</span><br><span class="line">contents：例如：soup.tag.contents，将指定的标签名内所有的标签都以列表形式返回。</span><br><span class="line">children：例如：soup.tag.children，将指定的标签中所有的字标签内容，都以迭代器形式返回，进行遍历查询。</span><br><span class="line">descendants：例如：soup.tag.descendants，将指定的标签中所有的字标签、孙标签都以迭代器形式返回，进行变量查询。</span><br><span class="line">注意：BeautifulSoup对象，作为标签树的根节点，即HTML节点</span><br><span class="line">3、常用方法</span><br><span class="line">1）函数格式：soup.find(name,attrs)</span><br><span class="line">参数说明：</span><br><span class="line">name：标签名</span><br><span class="line">attrs：标签中的属性值或（属性=<span class="string">'值'</span>）</span><br><span class="line">返回值：返回查找到的第一个符合条件的标签以及内部元素</span><br><span class="line"></span><br><span class="line">2）函数格式：soup.find_all(name,attrs)</span><br><span class="line">函数参数与上find相同</span><br><span class="line">返回值：返回符合条件的所有标签，以列表形式返回。</span><br><span class="line"></span><br><span class="line">4、bs4的遍历模式</span><br><span class="line">在BeautifulSoup中，有三种遍历模式：</span><br><span class="line">1）下行遍历</span><br><span class="line">children、descendants、contents</span><br><span class="line">find（）、find_all（）</span><br><span class="line">2）上行遍历</span><br><span class="line">parent、parents</span><br><span class="line">find_parent（）、find_parents（）</span><br><span class="line">3）平行遍历</span><br><span class="line">next_sibling、next_siblings</span><br><span class="line">previous_sibling、previous_siblings</span><br><span class="line">find_next_sibling、find_next_siblings</span><br><span class="line">find_previous_sibling、find_previous_siblings</span><br></pre></td></tr></table></figure>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">1、正则表达式的概念</span><br><span class="line">正则表达式就是使用一些特定的表达式来表示符合其规范的字符串。</span><br><span class="line">2、常用操作符</span><br><span class="line">^：^ab，代表着必须是ab开头，[^ab]代表不能是a或b</span><br><span class="line">$：表示字符串结尾</span><br><span class="line">[]：代表了值域的范围，例如：[0-9][A-Za-z]</span><br><span class="line">&#123;&#125;：代表了字符出现的次数，例如：&#123;n&#125;代表出现了n次，&#123;n-m&#125;代表出现了n到m次。</span><br><span class="line">*：代表了字符出现0-n次</span><br><span class="line">+：代表了字符出现1-n次</span><br><span class="line">？：代表了字符出现0-1次</span><br><span class="line">3、常用的方法</span><br><span class="line">1）search（）：会在指定的字符串中查找，是否有匹配正则表达式的内容</span><br><span class="line">函数格式：search（pattern，str）</span><br><span class="line">参数说明：pattern：正则表达式；	str：字符串</span><br><span class="line">返回值：match对象，可以通过match.group（0）返回匹配正则表达式的内容。</span><br><span class="line">2）match（）：会从字符串的开始进行匹配</span><br><span class="line">函数格式：match（pattern，str）</span><br><span class="line">返回值：match</span><br><span class="line">3）findall（）：会从指定的字符串中，匹配所有满足正则表达式的内容</span><br><span class="line">函数格式：findall（pattern，str）</span><br><span class="line">返回值：返回所有匹配的内容，以列表形式。</span><br><span class="line">4）split（）：根据字符串匹配正则表达式的情况来切分</span><br><span class="line">函数格式：split（pattern，str，maxsplit）</span><br><span class="line">maxsplit：最大切分次数，剩余部分将作为整体输出。</span><br><span class="line">返回值：列表，将切分后的字符串，以列表形式返回。</span><br><span class="line">5）finditer（）：根据字符串匹配正则表达式，返回一个迭代对象，其中每个对象都是match对象。</span><br><span class="line">函数格式：finditer（pattern，str）</span><br><span class="line">返回值：返回迭代对象</span><br><span class="line">6）sub（）：根据正则表达式，将匹配的字符串替换为指定的内容</span><br><span class="line">函数格式：sub（pattern，repl，string，count）</span><br><span class="line">参数说明：repl：要替换的内容。	string：被替换的内容		count：最大替换次数</span><br><span class="line">返回值：返回替换后的字符串</span><br><span class="line">7）compile（）：生成正则表达式对象</span><br><span class="line">函数格式：compile（pattern）</span><br><span class="line">返回值：返回一个正则表达式对象</span><br><span class="line">4、match对象</span><br><span class="line">1）match对象属性</span><br><span class="line">string：待匹配的字符串</span><br><span class="line">pos：匹配文本的开始位置</span><br><span class="line">endpos：匹配文本的结束位置</span><br><span class="line">re：正则表达式</span><br><span class="line">2）match方法</span><br><span class="line">group（0）：获得匹配后的字符串</span><br><span class="line">start（）：返回原字符串开始匹配的位置</span><br><span class="line">end（）：返回原字符串结束匹配的位置</span><br><span class="line">span（）：以元组的形式，返回原字符串开始的位置和结束的位置</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/27/网络爬虫/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-HTML基础学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -707,72 +773,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/30/文档二进制和Excel表格操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-文档输入输入一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/27/文档输入输入一/">文件目录学习</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/27/文档输入输入一/" class="archive-article-date">
-  	<time datetime="2018-07-27T13:07:35.242Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="文件目录的输入输出"><a href="#文件目录的输入输出" class="headerlink" title="文件目录的输入输出"></a>文件目录的输入输出</h2><h3 id="格式化函数"><a href="#格式化函数" class="headerlink" title="格式化函数"></a>格式化函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">repr（）</span><br><span class="line">函数格式：repr（Object）</span><br><span class="line">返回值：返回一个字符串类型的数据</span><br><span class="line">说明：该函数将参数中的对象进行处理，变为字符串类型；其中如果参数为字符串，仍然会下外部加上双引号“ ”其内部的字符串的边界符仍然存在。</span><br><span class="line">例如 ：</span><br><span class="line">a = repr(<span class="string">'hello world'</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line">=&gt;<span class="string">"'hello world'"</span></span><br><span class="line">居左、居右、居中函数</span><br><span class="line">居右函数rjust（）</span><br><span class="line">函数格式：rjust（）、ljust（）、center（）</span><br><span class="line">返回值：无</span><br><span class="line">说明：该函数，将输出的字符串居右（居左、居中）对齐，左侧（右侧、两侧）使用参数中规定的空格数来对齐。</span><br></pre></td></tr></table></figure>
-<h3 id="文本文件的操作步骤"><a href="#文本文件的操作步骤" class="headerlink" title="文本文件的操作步骤"></a>文本文件的操作步骤</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">1、打开文件</span><br><span class="line">函数格式：open（file，mode，buffering，encoding）</span><br><span class="line">返回值：返回一个文件对象，用来对文件进行操作。</span><br><span class="line">说明：该函数主要是进行文件打开操作，如果文件不存在，则新建一个文件；如果存在就打开原有文件。</span><br><span class="line">2、操作文件</span><br><span class="line">1）写文件</span><br><span class="line">函数格式：write（str）</span><br><span class="line">返回值：返回写入文件字符串的字符数量。</span><br><span class="line">说明：该函数可以一次性写入一个字符串内容，到文件中。每次写入文件时，如果使用的模式为w，那么本次写入为覆盖式写入，即写入内容会替换掉原有文件内容。</span><br><span class="line">函数格式：writelines（sequence）</span><br><span class="line">返回值：无返回值</span><br><span class="line">说明：该函数可以使用列表，字符串，元组，集合，字典等作为参数，其中这些序列中的元素必须为字符串类型。同时也可以一次性写入多行字符串。</span><br><span class="line">2）读文件</span><br><span class="line">函数格式：<span class="built_in">read</span>（[size]）</span><br><span class="line">返回值：返回按字节逐一读取的数据。</span><br><span class="line">说明：该函数按照字节个数逐一读取文件数据。如果没有规定读取数据的字节大小（size），一直读完文件中全部数据，如果规定了数据的字节大小，只读取规定字节数的内容。</span><br><span class="line"></span><br><span class="line">函数格式：readline（）</span><br><span class="line">返回值：返回读取的一行字符串。</span><br><span class="line">说明：该函数一次能够读取文件中的一行内容，如果需要读取全部内容，需要配合<span class="keyword">while</span>循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。</span><br><span class="line"></span><br><span class="line">函数格式：readlines（）</span><br><span class="line">返回值：返回一个包含多个字符串的列表。</span><br><span class="line">说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。</span><br><span class="line"></span><br><span class="line">3、关闭文件</span><br><span class="line">函数格式：close（）</span><br><span class="line">返回值：无</span><br><span class="line">注意：当我们操作文件是时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close（）函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。</span><br></pre></td></tr></table></figure>
-<h3 id="json格式处理"><a href="#json格式处理" class="headerlink" title="json格式处理"></a>json格式处理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">在Python中，提供了json模块可以时间对特殊数据结构的读写。比如：列表和字典。</span><br><span class="line">1）将列表活字典转为json格式数据</span><br><span class="line">impor json</span><br><span class="line">item = json.dumps(list/dict)</span><br><span class="line">file.writelines(item)</span><br><span class="line">2）将文件中的列表或字典json字符串读取出来</span><br><span class="line">f = open(file,mode)</span><br><span class="line">json.load(f)</span><br></pre></td></tr></table></figure>
-<h3 id="文件及路径操作函数"><a href="#文件及路径操作函数" class="headerlink" title="文件及路径操作函数"></a>文件及路径操作函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">1）isfile()与isdir()    （os.path）</span><br><span class="line">函数格式：isfile（file）</span><br><span class="line">返回值：bool</span><br><span class="line">说明：根据传入的参数，判断该内容是否为文件类型。如果是文件类型返回True，如果不是返回False。</span><br><span class="line"></span><br><span class="line">函数格式：isdir（path）</span><br><span class="line">返回值：bool</span><br><span class="line">说明：根据传入的参数，判断该内容是否为目录类型。如果是目录返回True，如果不是返回False。</span><br><span class="line"></span><br><span class="line">2）创建路径mkdir（）与删除路径removedirs（）     (os)</span><br><span class="line">函数格式：os.mkdir（path）</span><br><span class="line">返回值：无返回值</span><br><span class="line">说明：如果指定路径中不存在该目录，那么创建该目录。如果存在同名目录，则会报错。</span><br><span class="line"></span><br><span class="line">函数格式：os.removedirs（path）     os.rmdir(path)</span><br><span class="line">返回值：无返回值</span><br><span class="line">说明：删除指定的目录，如果该目录中存在文件或子目录，都不允许删除，否则会报错。</span><br><span class="line"></span><br><span class="line">3）删除文件remove（）(os)</span><br><span class="line">函数格式：remove（file）</span><br><span class="line">返回值：无返回值</span><br><span class="line">说明：删除指定的文件，如果该文件不存在，会报错。如果文件存在，就删除。</span><br><span class="line"></span><br><span class="line">4）判断文件/目录是否存在exists（）   (os.path)</span><br><span class="line">函数格式：exists（file/path）</span><br><span class="line">返回值：bool</span><br><span class="line">说明：判断指定的文件或路径是否存在，如果存在返回True，如果不存在返回False。</span><br><span class="line"></span><br><span class="line">5）返回指定路下，所有子路径listdir()</span><br><span class="line">函数格式：os.listdir(path)</span><br><span class="line">返回值：list</span><br><span class="line">说明：返回指定路径下，所有的子路径。</span><br><span class="line">6）返回当前路径getcwd（）</span><br><span class="line">函数格式：os.getcwd()</span><br><span class="line">返回值：path</span><br><span class="line">说明：返回当前程序所在的绝对路径。</span><br><span class="line">7）返回文件大小getsize（）</span><br><span class="line">函数格式：path.getsize()</span><br><span class="line">返回值：int</span><br><span class="line">说明：返回指定文件的大小，单位是字节</span><br><span class="line">8）重命名rename（）</span><br><span class="line">函数格式：os.rename(oldfilename/oldpath,newfilename/newpath)</span><br><span class="line">返回值：无</span><br><span class="line">说明：将指定的文件名或者路径名进行重命名。</span><br><span class="line">9）替换replace（）</span><br><span class="line">函数格式：os.replace(src,dst)</span><br><span class="line">返回值：无</span><br><span class="line">说明：使用目标文件替换掉原文件</span><br><span class="line"></span><br><span class="line">注意：在Python3.x的版本中，将pathlib作为内置模块进行了引入，我们可以通过使用from pathlib import Path，使用。</span><br><span class="line">其使用的前提为：先创建一个path对象，然后对其进行操作。</span><br><span class="line">具体方法，大家自行学习。</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/27/文档输入输入一/">展开全文 >></a>
         </p>
       
 
