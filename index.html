@@ -155,6 +155,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数据库学习（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/28/数据库学习（一）/">数据库学习（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/28/数据库学习（一）/" class="archive-article-date">
+  	<time datetime="2018-08-28T13:29:27.712Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据库语言分类"><a href="#数据库语言分类" class="headerlink" title="数据库语言分类"></a>数据库语言分类</h2><p>数据库定义语言：  DDL（create database/table, drop database/table, alter database/table）<br>数据库操纵语言：  DML（insert、delete、update、select）<br>数据库控制语言：  DCL（grant、revoke）<br>注意：数据库定义语言和数据库控制语言都是不可撤销的。而数据库操作语言是可以撤销的。</p>
+<h3 id="数据库定义语言"><a href="#数据库定义语言" class="headerlink" title="数据库定义语言"></a>数据库定义语言</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">1）创建数据库</span><br><span class="line">create database 数据库名；</span><br><span class="line">2）删除数据库</span><br><span class="line">drop database 数据库名；</span><br><span class="line">3）打开数据库</span><br><span class="line">use 数据库名；</span><br><span class="line">4）创建数据表</span><br><span class="line">create table 表名 （列名 数据类型，列名 数据类型，……）default charset=utf8</span><br><span class="line">注意：如果创建表的时候，没有指定字符集，那么该表将默认采用其所在的数据库的字符集。通常我们建议指定缺省的字符集。</span><br><span class="line">5）查看数据表的字符集情况</span><br><span class="line">show variables like <span class="string">'character%'</span>;</span><br><span class="line">6）查看表结构</span><br><span class="line">desc 表名</span><br><span class="line"></span><br><span class="line">7）数据库字段类型</span><br><span class="line">字符类型：</span><br><span class="line">char（长度）：定长的字符类型，一旦声明了长度，即使定义的字段数据不能达到最大长度，也会按照最大长度进行所占字节的分配。取值范围0-255</span><br><span class="line">varchar（长度）：变长的字符类型，声明长度后，如果字段数据的长度达不到最大长度，则会根据实际长度给出数据的实际长度。取值范围0-（2^16-1）</span><br><span class="line">数值类型：</span><br><span class="line">int（长度）：给出指定的字段数据长度。如果没有明确指定长度，则采用默认长度11，所占字节4个。</span><br><span class="line">日期类型：</span><br><span class="line">date：日期类型的字段，在定义时不需要指定长度。格式为YYYY-MM-DD</span><br><span class="line">time：日期类型的字段，格式HH：MM：SS</span><br><span class="line">datetime：日期类型的字段，格式：YYYY-MM-DD HH：MM：SS</span><br><span class="line">布尔型：</span><br><span class="line">bool：布尔类型的字段，在定义时，采用0代表假，1代表真。</span><br><span class="line">实际在mysql数据库中，bool类型等同于数值型的tinyint（1）</span><br><span class="line"></span><br><span class="line">8）修改表结构</span><br><span class="line">alter table 表名 [add/modify/change/drop] 字段名 [数据类型]</span><br><span class="line">添加字段：</span><br><span class="line">alter table tablename add 字段名 数据类型；</span><br><span class="line">添加字段，位于表中的最后一列。</span><br><span class="line">alter table tablename drop 字段名</span><br><span class="line">删除一列，如果列中有数据，则全部被删除且不可恢复。</span><br><span class="line">alter table tablename modify 字段名 数据类型</span><br><span class="line">修改指定字段的数据类型及长度</span><br><span class="line">alter table tablename change oldcolumn newcolumn 数据类型</span><br><span class="line">修改指定字段的名字</span><br><span class="line">9）修改表名</span><br><span class="line">rename table 旧表名 to 新表名</span><br></pre></td></tr></table></figure>
+<h3 id="数据库操作语言"><a href="#数据库操作语言" class="headerlink" title="数据库操作语言"></a>数据库操作语言</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">1）数据类型间的默认转换</span><br><span class="line">字符串=&gt;日期型</span><br><span class="line">如果字段数据类型定义为日期型，例如：date（YYYY-MM-DD），如果我们对该字段插入数据时，采用‘2018-08-23’的字符串格式进行数据插入，mysql会自动将字符串转为日期型。</span><br><span class="line"></span><br><span class="line">字符串=&gt;数值型</span><br><span class="line">当字段的数据类型为字符型的数值时，我们使用该字段的值与数值进行运算，那么得到的结果为数值型。</span><br><span class="line">同时，如果字段类型定义为数值型，我们可以将数值型字符串插入到指定的字段中。</span><br><span class="line">如果，字段类型为字符型，其中由字符与数字混合组成（只要不是纯数字构成的字符串），此时与数值进行算数运算，那么该字段内容被转换为0来进行处理。</span><br><span class="line">2）运算符</span><br><span class="line">算术运算符</span><br><span class="line">比较运算符</span><br><span class="line">逻辑运算符</span><br><span class="line">位运算符</span><br><span class="line">3）插入数据</span><br><span class="line">标准格式：</span><br><span class="line">insert  into  表名（字段1，字段2，字段3，……） values（字段1，字段2，字段3，……）；</span><br><span class="line">insert  into  persons（pno，pname，age，hire_date，salary） values（<span class="string">'10001'</span>,<span class="string">'tom'</span>,21,<span class="string">'2018-03-21'</span>,1234）；</span><br><span class="line">通常，我们在声明表名的时候将需要插入数据的字段名一起进行声明，有利于提高插入的效率。同时如果有些字段值为null，可以在实际插入的时候省略。另外，字段值只需要与字段名名称对应即可，不需要按照表中实际字段的位置进行填写。</span><br><span class="line"></span><br><span class="line">insert into 表名 values （字段1，字段2，字段3，……）</span><br><span class="line">这种写法要按照表中字段的实际顺序进行一一对应的填写。同时，如果某个字段的值为null，也必须将null值进行标明。</span><br><span class="line"></span><br><span class="line">插入多条语句</span><br><span class="line">insert into 表名 （字段名） values（字段值1，字段值2，字段值3，……），（字段值1，字段值2，字段值3，……）一次性插入多条数据</span><br><span class="line">insert into 表名（字段值） select * from persons；</span><br><span class="line">将指定表的查询结果，作为要插入到目标表中的数据，进行插入。要求是目标表结构与指定表的结构相同。</span><br><span class="line"></span><br><span class="line">4）更新数据</span><br><span class="line">格式：update 表名 <span class="built_in">set</span> 字段1=新值，字段2=新值，……，字段n=新值 <span class="built_in">where</span> 条件</span><br><span class="line">进行更新操作时，一定要进行条件约束；如果该语句没有条件子句的话，那就表示对全表进行更新操作。</span><br><span class="line">5）删除数据</span><br><span class="line">delete from 表名 <span class="built_in">where</span> 条件</span><br><span class="line">进行删除操作时，一定要添加条件，如果没有条件子句，就意味着删除全表内容。</span><br><span class="line">6）数据操作的撤销和提交</span><br><span class="line"><span class="built_in">set</span> autocommit = off 使mysql的默认提交关闭。</span><br><span class="line">撤销：rollback</span><br><span class="line">提交：commit</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/28/数据库学习（一）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-网络爬虫" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -738,73 +803,9 @@
 
 
   
-    <article id="post-文档二进制和Excel表格操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/30/文档二进制和Excel表格操作/">数据处理</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/30/文档二进制和Excel表格操作/" class="archive-article-date">
-  	<time datetime="2018-07-30T13:21:10.078Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="二进制文件的输入输出和Excel表格操作"><a href="#二进制文件的输入输出和Excel表格操作" class="headerlink" title="二进制文件的输入输出和Excel表格操作"></a>二进制文件的输入输出和Excel表格操作</h2><h3 id="二进制文件的输入输出"><a href="#二进制文件的输入输出" class="headerlink" title="二进制文件的输入输出"></a>二进制文件的输入输出</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">1）struct和pickle</span><br><span class="line">使用struct模块，进行数据的输入输出</span><br><span class="line">使用步骤：</span><br><span class="line">第一、对要写入到文件中的各种类型数据，进行统一的打包</span><br><span class="line">struct.pack(<span class="string">'if'</span>,10,12.4)，其中，i代表了整数，f代表了浮点数，？代表布尔型</span><br><span class="line">第二、使用write（）写入，写入后以二进制的方式进行文件存储。</span><br><span class="line">第三，读取时，首先采用struct.unpack()来解包里面包含的相关数据，返回一个序列，即写入时的顺序与读取时的顺序应该一致。</span><br><span class="line">注意：需要将所有写入的数据，一次性都封装到一个bytes中，因为在Python中没有字节（byte）的概念，所以需要第三方的模块进行封装。</span><br><span class="line"></span><br><span class="line">使用pickle模块，进行数据的输入输出</span><br><span class="line">使用步骤：</span><br><span class="line">第一、对要写入文件中的数据，进行逐一的写入</span><br><span class="line">例如：</span><br><span class="line">a = 10</span><br><span class="line">b = 13.24</span><br><span class="line">c = [[1,2,3],[4,5,6]]</span><br><span class="line">d = <span class="string">'adf'</span></span><br><span class="line">f = open(<span class="string">'myfile.txt'</span>,<span class="string">'wb'</span>)</span><br><span class="line">pickle.dump(a,f)</span><br><span class="line">pickle.dump(b,f)</span><br><span class="line">pickle.dump(c,f)</span><br><span class="line">pickle.dump(d,f)</span><br><span class="line">第二，读取数据时，同理。</span><br><span class="line">例如：</span><br><span class="line">f = open(<span class="string">'myfile.txt'</span>,<span class="string">'rb'</span>)</span><br><span class="line">pickle.load(f)</span><br><span class="line">注意，在使用时，我们能够观察到该模块的dump和load函数，与前面所学的json模块的函数一致，在Python中json与pickle都能够实现序列化和反序列化的两个模块。</span><br><span class="line">在实际的使用中，推荐使用pickle模块。</span><br><span class="line"></span><br><span class="line">2）文件定位</span><br><span class="line">函数格式：seek（n）</span><br><span class="line">返回值：返回指定的位置</span><br><span class="line">说明：通过指定元素的位置，将文件指针移动到该位置。</span><br><span class="line">seek（）函数有三个固定值，分别为：0,1,2</span><br><span class="line">0：文件的开头</span><br><span class="line">1：文件当前的位置</span><br><span class="line">2：文件的结尾位置</span><br><span class="line">seek（0,2）：代表着将指针定位到文件尾，然后进行添加操作</span><br><span class="line">seek（0,1）：代表着在当前指针的位置，进行替换</span><br><span class="line"></span><br><span class="line">补充：对文件的读取时，如果文件大小位置，切记不要使用<span class="built_in">read</span>（），readline（），readlines（）将文件内容一次性读取到内存中。因为有可能文件内容过多，造成读取时的I/O阻塞。建议，将文件分多次分批读入内存中。我们通常可以先获取到文件大小。</span><br><span class="line">size = path.getsize()</span><br><span class="line">根据其大小来判断我们采用何种方式进行读取数据内容。</span><br></pre></td></tr></table></figure>
-<h3 id="Excel表格操作"><a href="#Excel表格操作" class="headerlink" title="Excel表格操作"></a>Excel表格操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">1、需要三个主要的模块</span><br><span class="line">xlrd：用来读取Excel文件中的内容</span><br><span class="line">xlwt：用来写入Excel文件内容</span><br><span class="line">xlutils：用来实现Excel文件的复制</span><br><span class="line">2、</span><br><span class="line">首先：xlrd</span><br><span class="line">open workbook（）</span><br><span class="line">函数格式：open workbook（文件名）</span><br><span class="line">返回值：返回Excel对象</span><br><span class="line">说明：打开指定的Rxcel文件，生成一个Excel对象用来实现读取行、列及单元格内容</span><br><span class="line"></span><br><span class="line">函数格式：sheet_by_name(sheet页面名)/sheet_by_index(sheet页索引位，默认从0开始)</span><br><span class="line">返回值：sheet页对象</span><br><span class="line">说明：找到指定的sheet页，生成一个对应的sheet页对象，对其内部的数据进行检索</span><br><span class="line"></span><br><span class="line">函数格式：sheet.cell(rownum,colnum)</span><br><span class="line">返回值：返回指定行列的单元格对象，如果要获取其中的内容，调用value属性。</span><br><span class="line">说明：通过指定行、列，能够确认一个单元格。</span><br><span class="line">其次：xlwt</span><br><span class="line">函数名：workbook（）</span><br><span class="line">返回值：返回一个新创建的Excel空对象</span><br><span class="line">说明：该函数用来生成一个Excel对象，但是该对象没有任何内容</span><br><span class="line"></span><br><span class="line">函数名称：add_sheet(sheet名字)</span><br><span class="line">返回值：返回一个心创建的sheet页对象</span><br><span class="line">说明：该函数用来新增一个空的sheet页对象</span><br><span class="line"></span><br><span class="line">函数名称：write(row,col,value)</span><br><span class="line">返回值：无</span><br><span class="line">说明：对指定的行列单元格内，写入value内容</span><br><span class="line"></span><br><span class="line">最后：xlutils</span><br><span class="line">函数格式：copy(Excel对象)</span><br><span class="line">返回值：返回一个指定对象的副本</span><br><span class="line">说明：在Python中对Excel的修改，都是生成一个对应的副本，修改后保存。</span><br><span class="line"></span><br><span class="line">函数格式：get_sheet(索引位)</span><br><span class="line">返回值：返回一个指定对象副本中的sheet页</span><br><span class="line">说明：我们实际修改的数据都是位于sheet页中。因此要获取到指定的sheet页。</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/30/文档二进制和Excel表格操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
